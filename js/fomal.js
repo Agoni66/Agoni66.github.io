@@ -638,155 +638,155 @@ function randomPost() {
 
 //----------------------------------------------------------------
 
-/* 小猫咪 start */
-if (document.body.clientWidth > 992) {
-  function getBasicInfo() {
-    /* 窗口高度 */
-    var ViewH = $(window).height();
-    /* document高度 */
-    var DocH = $("body")[0].scrollHeight;
-    /* 滚动的高度 */
-    var ScrollTop = $(window).scrollTop();
-    /* 可滚动的高度 */
-    var S_V = DocH - ViewH;
-    var Band_H = ScrollTop / (DocH - ViewH) * 100;
-    return {
-      ViewH: ViewH,
-      DocH: DocH,
-      ScrollTop: ScrollTop,
-      Band_H: Band_H,
-      S_V: S_V
-    }
-  };
-  function show(basicInfo) {
-    if (basicInfo.ScrollTop > 0.001) {
-      $(".neko").css('display', 'block');
-    } else {
-      $(".neko").css('display', 'none');
-    }
-  }
-  (function ($) {
-    $.fn.nekoScroll = function (option) {
-      var defaultSetting = {
-        top: '0',
-        scroWidth: 6 + 'px',
-        z_index: 9999,
-        zoom: 0.9,
-        borderRadius: 5 + 'px',
-        right: 55.6 + 'px',
-        nekoImg: "https://bu.dusays.com/2022/07/20/62d812db74be9.png",
-        hoverMsg: "春天啦~",
-        color: "var(--theme-color)",
-        during: 500,
-        blog_body: "body",
-      };
-      var setting = $.extend(defaultSetting, option);
-      var getThis = this.prop("className") !== "" ? "." + this.prop("className") : this.prop("id") !== "" ? "#" +
-        this.prop("id") : this.prop("nodeName");
-      if ($(".neko").length == 0) {
-        this.after("<div class=\"neko\" id=" + setting.nekoname + " data-msg=\"" + setting.hoverMsg + "\"></div>");
-      }
-      let basicInfo = getBasicInfo();
-      $(getThis)
-        .css({
-          'position': 'fixed',
-          'width': setting.scroWidth,
-          'top': setting.top,
-          'height': basicInfo.Band_H * setting.zoom * basicInfo.ViewH * 0.01 + 'px',
-          'z-index': setting.z_index,
-          'background-color': setting.bgcolor,
-          "border-radius": setting.borderRadius,
-          'right': setting.right,
-          'background-image': 'url(' + setting.scImg + ')',
-          'background-image': '-webkit-linear-gradient(45deg, rgba(255, 255, 255, 0.1) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.1) 75%, transparent 75%, transparent)', 'border-radius': '2em',
-          'background-size': 'contain'
-        });
-      $("#" + setting.nekoname)
-        .css({
-          'position': 'fixed',
-          'top': basicInfo.Band_H * setting.zoom * basicInfo.ViewH * 0.01 - 50 + 'px',
-          'z-index': setting.z_index * 10,
-          'right': setting.right,
-          'background-image': 'url(' + setting.nekoImg + ')',
-        });
-      show(getBasicInfo());
-      $(window)
-        .scroll(function () {
-          let basicInfo = getBasicInfo();
-          show(basicInfo);
-          $(getThis)
-            .css({
-              'position': 'fixed',
-              'width': setting.scroWidth,
-              'top': setting.top,
-              'height': basicInfo.Band_H * setting.zoom * basicInfo.ViewH * 0.01 + 'px',
-              'z-index': setting.z_index,
-              'background-color': setting.bgcolor,
-              "border-radius": setting.borderRadius,
-              'right': setting.right,
-              'background-image': 'url(' + setting.scImg + ')',
-              'background-image': '-webkit-linear-gradient(45deg, rgba(255, 255, 255, 0.1) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.1) 75%, transparent 75%, transparent)', 'border-radius': '2em',
-              'background-size': 'contain'
-            });
-          $("#" + setting.nekoname)
-            .css({
-              'position': 'fixed',
-              'top': basicInfo.Band_H * setting.zoom * basicInfo.ViewH * 0.01 - 50 + 'px',
-              'z-index': setting.z_index * 10,
-              'right': setting.right,
-              'background-image': 'url(' + setting.nekoImg + ')',
-            });
-          if (basicInfo.ScrollTop == basicInfo.S_V) {
-            $("#" + setting.nekoname)
-              .addClass("showMsg")
-          } else {
-            $("#" + setting.nekoname)
-              .removeClass("showMsg");
-            $("#" + setting.nekoname)
-              .attr("data-msg", setting.hoverMsg);
-          }
-        });
-      this.click(function (e) {
-        btf.scrollToDest(0, 500)
-      });
-      $("#" + setting.nekoname)
-        .click(function () {
-          btf.scrollToDest(0, 500)
-        });
-      return this;
-    }
-  })(jQuery);
+// /* 小猫咪 start */
+// if (document.body.clientWidth > 992) {
+//   function getBasicInfo() {
+//     /* 窗口高度 */
+//     var ViewH = $(window).height();
+//     /* document高度 */
+//     var DocH = $("body")[0].scrollHeight;
+//     /* 滚动的高度 */
+//     var ScrollTop = $(window).scrollTop();
+//     /* 可滚动的高度 */
+//     var S_V = DocH - ViewH;
+//     var Band_H = ScrollTop / (DocH - ViewH) * 100;
+//     return {
+//       ViewH: ViewH,
+//       DocH: DocH,
+//       ScrollTop: ScrollTop,
+//       Band_H: Band_H,
+//       S_V: S_V
+//     }
+//   };
+//   function show(basicInfo) {
+//     if (basicInfo.ScrollTop > 0.001) {
+//       $(".neko").css('display', 'block');
+//     } else {
+//       $(".neko").css('display', 'none');
+//     }
+//   }
+//   (function ($) {
+//     $.fn.nekoScroll = function (option) {
+//       var defaultSetting = {
+//         top: '0',
+//         scroWidth: 6 + 'px',
+//         z_index: 9999,
+//         zoom: 0.9,
+//         borderRadius: 5 + 'px',
+//         right: 55.6 + 'px',
+//         nekoImg: "https://bu.dusays.com/2022/07/20/62d812db74be9.png",
+//         hoverMsg: "春天啦~",
+//         color: "var(--theme-color)",
+//         during: 500,
+//         blog_body: "body",
+//       };
+//       var setting = $.extend(defaultSetting, option);
+//       var getThis = this.prop("className") !== "" ? "." + this.prop("className") : this.prop("id") !== "" ? "#" +
+//         this.prop("id") : this.prop("nodeName");
+//       if ($(".neko").length == 0) {
+//         this.after("<div class=\"neko\" id=" + setting.nekoname + " data-msg=\"" + setting.hoverMsg + "\"></div>");
+//       }
+//       let basicInfo = getBasicInfo();
+//       $(getThis)
+//         .css({
+//           'position': 'fixed',
+//           'width': setting.scroWidth,
+//           'top': setting.top,
+//           'height': basicInfo.Band_H * setting.zoom * basicInfo.ViewH * 0.01 + 'px',
+//           'z-index': setting.z_index,
+//           'background-color': setting.bgcolor,
+//           "border-radius": setting.borderRadius,
+//           'right': setting.right,
+//           'background-image': 'url(' + setting.scImg + ')',
+//           'background-image': '-webkit-linear-gradient(45deg, rgba(255, 255, 255, 0.1) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.1) 75%, transparent 75%, transparent)', 'border-radius': '2em',
+//           'background-size': 'contain'
+//         });
+//       $("#" + setting.nekoname)
+//         .css({
+//           'position': 'fixed',
+//           'top': basicInfo.Band_H * setting.zoom * basicInfo.ViewH * 0.01 - 50 + 'px',
+//           'z-index': setting.z_index * 10,
+//           'right': setting.right,
+//           'background-image': 'url(' + setting.nekoImg + ')',
+//         });
+//       show(getBasicInfo());
+//       $(window)
+//         .scroll(function () {
+//           let basicInfo = getBasicInfo();
+//           show(basicInfo);
+//           $(getThis)
+//             .css({
+//               'position': 'fixed',
+//               'width': setting.scroWidth,
+//               'top': setting.top,
+//               'height': basicInfo.Band_H * setting.zoom * basicInfo.ViewH * 0.01 + 'px',
+//               'z-index': setting.z_index,
+//               'background-color': setting.bgcolor,
+//               "border-radius": setting.borderRadius,
+//               'right': setting.right,
+//               'background-image': 'url(' + setting.scImg + ')',
+//               'background-image': '-webkit-linear-gradient(45deg, rgba(255, 255, 255, 0.1) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.1) 75%, transparent 75%, transparent)', 'border-radius': '2em',
+//               'background-size': 'contain'
+//             });
+//           $("#" + setting.nekoname)
+//             .css({
+//               'position': 'fixed',
+//               'top': basicInfo.Band_H * setting.zoom * basicInfo.ViewH * 0.01 - 50 + 'px',
+//               'z-index': setting.z_index * 10,
+//               'right': setting.right,
+//               'background-image': 'url(' + setting.nekoImg + ')',
+//             });
+//           if (basicInfo.ScrollTop == basicInfo.S_V) {
+//             $("#" + setting.nekoname)
+//               .addClass("showMsg")
+//           } else {
+//             $("#" + setting.nekoname)
+//               .removeClass("showMsg");
+//             $("#" + setting.nekoname)
+//               .attr("data-msg", setting.hoverMsg);
+//           }
+//         });
+//       this.click(function (e) {
+//         btf.scrollToDest(0, 500)
+//       });
+//       $("#" + setting.nekoname)
+//         .click(function () {
+//           btf.scrollToDest(0, 500)
+//         });
+//       return this;
+//     }
+//   })(jQuery);
 
-  $(document).ready(function () {
-    //部分自定义
-    $("#myscoll").nekoScroll({
-      bgcolor: 'rgb(0 0 0 / .5)', //背景颜色，没有绳子背景图片时有效
-      borderRadius: '2em',
-      zoom: 0.9
-    }
-    );
-    //自定义（去掉以下注释，并注释掉其他的查看效果）
-    /*
-    $("#myscoll").nekoScroll({
-        nekoname:'neko1', //nekoname，相当于id
-        nekoImg:'img/猫咪.png', //neko的背景图片
-        scImg:"img/绳1.png", //绳子的背景图片
-        bgcolor:'#1e90ff', //背景颜色，没有绳子背景图片时有效
-        zoom:0.9, //绳子长度的缩放值
-        hoverMsg:'你好~喵', //鼠标浮动到neko上方的对话框信息
-        right:'100px', //距离页面右边的距离
-        fontFamily:'楷体', //对话框字体
-        fontSize:'14px', //对话框字体的大小
-        color:'#1e90ff', //对话框字体颜色
-        scroWidth:'8px', //绳子的宽度
-        z_index:100, //不用解释了吧
-        during:1200, //从顶部到底部滑动的时长
-    });
-    */
-  })
-}
+//   $(document).ready(function () {
+//     //部分自定义
+//     $("#myscoll").nekoScroll({
+//       bgcolor: 'rgb(0 0 0 / .5)', //背景颜色，没有绳子背景图片时有效
+//       borderRadius: '2em',
+//       zoom: 0.9
+//     }
+//     );
+//     //自定义（去掉以下注释，并注释掉其他的查看效果）
+//     /*
+//     $("#myscoll").nekoScroll({
+//         nekoname:'neko1', //nekoname，相当于id
+//         nekoImg:'img/猫咪.png', //neko的背景图片
+//         scImg:"img/绳1.png", //绳子的背景图片
+//         bgcolor:'#1e90ff', //背景颜色，没有绳子背景图片时有效
+//         zoom:0.9, //绳子长度的缩放值
+//         hoverMsg:'你好~喵', //鼠标浮动到neko上方的对话框信息
+//         right:'100px', //距离页面右边的距离
+//         fontFamily:'楷体', //对话框字体
+//         fontSize:'14px', //对话框字体的大小
+//         color:'#1e90ff', //对话框字体颜色
+//         scroWidth:'8px', //绳子的宽度
+//         z_index:100, //不用解释了吧
+//         during:1200, //从顶部到底部滑动的时长
+//     });
+//     */
+//   })
+// }
 
-/* 小猫咪 end */
+// /* 小猫咪 end */
 
 //----------------------------------------------------------------
 
@@ -2789,7 +2789,7 @@ function createtime() {
   var dis = Math.trunc(23400000000 + ((now - start) / 1000) * 17); // 距离=秒数*速度 记住转换毫秒
   var unit = (dis / 149600000).toFixed(6);  // 天文单位
   // 网站诞生时间
-  var grt = new Date("08/09/2022 00:00:00");
+  var grt = new Date("05/27/2024 00:00:00");
   var days = (now - grt) / 1e3 / 60 / 60 / 24,
     dnum = Math.floor(days),
     hours = (now - grt) / 1e3 / 60 / 60 - 24 * dnum,
@@ -2804,9 +2804,10 @@ function createtime() {
   let currentTimeHtml = "";
   (currentTimeHtml =
     hnum < 18 && hnum >= 9
-      ? `<img class='boardsign' src='https://lskypro.acozycotage.net/Fomalhaut/badge/F小屋-科研摸鱼中.svg' title='什么时候能够实现财富自由呀~'><br> <div style="font-size:13px;font-weight:bold">本站居然运行了 ${dnum} 天 ${hnum} 小时 ${mnum} 分 ${snum} 秒 <i id="heartbeat" class='fas fa-heartbeat'></i> <br> 旅行者 1 号当前距离地球 ${dis} 千米，约为 ${unit} 个天文单位 🚀</div>`
+      ? `<img class='boardsign' src='img/cat.jpg' title='效率效率，你是我滴神👻~' width = '10px' height = '10px'><br> <div style="font-size:13px;font-weight:bold">本站居然运行了 ${dnum} 天 ${hnum} 小时 ${mnum} 分 ${snum} 秒 <i id="heartbeat" class='fas fa-heartbeat'></i> </div>`
       : `<img class='boardsign' src='https://lskypro.acozycotage.net/Fomalhaut/badge/F小屋-下班休息啦.svg' title='下班了就该开开心心地玩耍~'><br> <div style="font-size:13px;font-weight:bold">本站居然运行了 ${dnum} 天 ${hnum} 小时 ${mnum} 分 ${snum} 秒 <i id="heartbeat" class='fas fa-heartbeat'></i> <br> 旅行者 1 号当前距离地球 ${dis} 千米，约为 ${unit} 个天文单位 🚀</div>`),
-    document.getElementById("workboard") &&
+    // <br> 旅行者 1 号当前距离地球 ${dis} 千米，约为 ${unit} 个天文单位 🚀 页脚想加什么自己加
+      document.getElementById("workboard") &&
     (document.getElementById("workboard").innerHTML = currentTimeHtml);
 }
 // 设置重复执行函数，周期1000ms
@@ -3174,11 +3175,16 @@ if (localStorage.getItem("blogbg") != undefined) {
   setBg(localStorage.getItem("blogbg"));
 } else {
   document.getElementById("defineBg").innerText = `:root{
-    --default-bg: url(img/아이유 블루밍 PC 배경화면 010.jpg);
-    --darkmode-bg:url(img/鸣潮.png);
+    --default-bg: url(https://github.com/Agoni66/Agoni66.github.io/tree/main/img/아이유 블루밍 PC 배경화면 010.jpg);
+    --darkmode-bg:url(https://github.com/Agoni66/Agoni66.github.io/tree/main/img/鸣潮.png);
     --mobileday-bg: url(https://lskypro.acozycotage.net/Fomalhaut/img/snow.webp);
     --mobilenight-bg: url(https://lskypro.acozycotage.net/Fomalhaut/img/mb8.webp);
   }`;
+// 默认背景
+// --default-bg: url(https://lskypro.acozycotage.net/Fomalhaut/img/dm14.webp);
+// --darkmode-bg:url(https://lskypro.acozycotage.net/Fomalhaut/img/yuanshen1.webp);
+// --mobileday-bg: url(https://lskypro.acozycotage.net/Fomalhaut/img/snow.webp);
+// --mobilenight-bg: url(https://lskypro.acozycotage.net/Fomalhaut/img/mb8.webp);
 }
 // 切换背景主函数
 function changeBg(s) {
