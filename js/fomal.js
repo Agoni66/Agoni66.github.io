@@ -2925,7 +2925,7 @@ function clearItem() {
 
 // 设置字体
 if (localStorage.getItem("font") == undefined) {
-  localStorage.setItem("font", "LXGW");
+  localStorage.setItem("font", "syst");
 }
 setFont(localStorage.getItem("font"));
 function setFont(n) {
@@ -3386,11 +3386,11 @@ function createWinbox() {
 <h2>二、字体设置</h2>
 <p id="swfs">
 <a class="swf" id="swf_puhuiti" href="javascript:;" rel="noopener external nofollow" style="font-family:'puhuiti'!important;color:black" onclick="setFont('puhuiti')">普惠体</a>
-<a class="swf" id="swf_HYTMR" href="javascript:;" rel="noopener external nofollow" style="font-family:'HYTMR'!important;color:black" onclick="setFont('HYTMR')">汉仪唐美人</a>
-<a class="swf" id="swf_LXGW" href="javascript:;" rel="noopener external nofollow" style="font-family:'LXGW'!important;color:black" onclick="setFont('LXGW')">霞鹜文楷</a>
-<a class="swf" id="swf_TTQHB" href="javascript:;" rel="noopener external nofollow" style="font-family:'TTQHB'!important;color:black" onclick="setFont('TTQHB')">甜甜圈海报</a>
-<a class="swf" id="swf_YSHST" href="javascript:;" rel="noopener external nofollow" style="font-family:'YSHST'!important;color:black" onclick="setFont('YSHST')">优设好身体</a>
-<a class="swf" id="swf_MiSans" href="javascript:;" rel="noopener external nofollow" style="font-family:'MiSans'!important;color:black" onclick="setFont('MiSans')">MiSans</a>
+<a class="swf" id="swf_ceyyt" href="javascript:;" rel="noopener external nofollow" style="font-family:'ceyyt'!important;color:black" onclick="setFont('ceyyt')">仓耳渔阳体</a>
+<a class="swf" id="swf_syst" href="javascript:;" rel="noopener external nofollow" style="font-family:'syst'!important;color:black" onclick="setFont('syst')">思源宋体</a>
+<a class="swf" id="swf_qkhyt" href="javascript:;" rel="noopener external nofollow" style="font-family:'qkhyt'!important;color:black" onclick="setFont('qkhyt')">站酷庆科黄油体</a>
+<a class="swf" id="swf_xwlogo" href="javascript:;" rel="noopener external nofollow" style="font-family:'xwlogo'!important;color:black" onclick="setFont('xwlogo')">站酷小薇LOGO体</a>
+<a class="swf" id="swf_sxmx" href="javascript:;" rel="noopener external nofollow" style="font-family:'sxmx'!important;color:black" onclick="setFont('sxmx')">手写漫写体</a>
 <a class="swf" id="swf_default" href="javascript:;" rel="noopener external nofollow" style="font-family:-apple-system, IBM Plex Mono ,monosapce,'微软雅黑', sans-serif;!important;color:black" onclick="setFont('default')">系统默认</a>
 </p>
 
