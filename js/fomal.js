@@ -348,8 +348,8 @@ document.addEventListener("copy", function () {
     new Vue({
       data: function () {
         this.$notify({
-          title: "哎嘿！复制成功🍬",
-          message: "若要转载最好保留原文链接哦，给你一个大大的赞！",
+          title: "哎嘿！复制成功✅",
+          message: "记得一键三连👍🪙⭐",
           position: 'top-left',
           offset: 50,
           showClose: true,
@@ -369,8 +369,8 @@ document.onkeydown = function (e) {
       new Vue({
         data: function () {
           this.$notify({
-            title: "你已被发现😜",
-            message: "小伙子，扒源记住要遵循GPL协议！",
+            title: "抓",
+            message: "看就看咯！👌",
             position: 'top-left',
             offset: 50,
             showClose: true,
@@ -1119,7 +1119,7 @@ function createtime1() {
   var dnum = Math.floor(days);
 
   var ascll = [
-    `欢迎来到小黄鸭の窝窝!`,
+    `欢迎来到小黄鸭の窝窝!✨️`,
     `想你所想，爱你所爱🌈`,
     `
         
@@ -1172,7 +1172,7 @@ function createtime2() {
   setTimeout(
     console.warn.bind(
       console,
-      "%c ⚡ Powered by Fomalhaut🥝 %c 你正在访问Fomalhaut🥝の小家",
+      "%c ⚡ Powered by 千焦 %c 你正在访问小黄鸭の窝窝",
       "color:white; background-color:#f0ad4e",
       ""
     )
@@ -1253,8 +1253,8 @@ function switchNightMode() {
       new Vue({
         data: function () {
           this.$notify({
-            title: "开灯啦🌞",
-            message: "当前已成功切换至白天模式！",
+            title: "天亮了🌞",
+            message: "当前已成功切换至白天模式，昨晚是平安夜！",
             position: 'top-left',
             offset: 50,
             showClose: true,
@@ -1316,22 +1316,22 @@ function share() {
 
 /* 恶搞标题 start */
 //动态标题
-var OriginTitile = document.title;
-var titleTime;
-document.addEventListener('visibilitychange', function () {
-  if (document.hidden) {
-    //离开当前页面时标签显示内容
-    document.title = '👀跑哪里去了~';
-    clearTimeout(titleTime);
-  } else {
-    //返回当前页面时标签显示内容
-    document.title = '🐖抓到你啦～';
-    //两秒后变回正常标题
-    titleTime = setTimeout(function () {
-      document.title = OriginTitile;
-    }, 2000);
-  }
-});
+// var OriginTitile = document.title;
+// var titleTime;
+// document.addEventListener('visibilitychange', function () {
+//   if (document.hidden) {
+//     //离开当前页面时标签显示内容
+//     document.title = '👀跑哪里去了~';
+//     clearTimeout(titleTime);
+//   } else {
+//     //返回当前页面时标签显示内容
+//     document.title = '🐖抓到你啦～';
+//     //两秒后变回正常标题
+//     titleTime = setTimeout(function () {
+//       document.title = OriginTitile;
+//     }, 2000);
+//   }
+// });
 /* 恶搞标题 end */
 
 //----------------------------------------------------------------
@@ -2802,13 +2802,16 @@ function createtime() {
     snum = Math.round(seconds);
   1 == String(snum).length && (snum = "0" + snum);
   let currentTimeHtml = "";
-  (currentTimeHtml =
-    hnum < 18 && hnum >= 9
-      ? `<div class="time-box"> 本站居然运行了 ${dnum} 天 ${hnum} 小时 ${mnum} 分 ${snum} 秒 <i id="heartbeat" class='fas fa-heartbeat'></i> </div>`
-      : `<img class='boardsign' src='https://lskypro.acozycotage.net/Fomalhaut/badge/F小屋-下班休息啦.svg' title='下班了就该开开心心地玩耍~'><br> <div style="font-size:13px;font-weight:bold">本站居然运行了 ${dnum} 天 ${hnum} 小时 ${mnum} 分 ${snum} 秒 <i id="heartbeat" class='fas fa-heartbeat'></i> </div>`),
-    // <br> 旅行者 1 号当前距离地球 ${dis} 千米，约为 ${unit} 个天文单位 🚀 页脚想加什么自己加
-      document.getElementById("workboard") &&
-    (document.getElementById("workboard").innerHTML = currentTimeHtml);
+  // (currentTimeHtml =
+  //   hnum < 18 && hnum >= 9
+  //     ? `<div class="time-box"> 本站居然运行了 ${dnum} 天 ${hnum} 小时 ${mnum} 分 ${snum} 秒 <i id="heartbeat" class='fas fa-heartbeat'></i> </div>`
+  //     : `本站居然运行了 ${dnum} 天 ${hnum} 小时 ${mnum} 分 ${snum} 秒 <i id="heartbeat" class='fas fa-heartbeat'></i> </div>`),
+  //   // <br> 旅行者 1 号当前距离地球 ${dis} 千米，约为 ${unit} 个天文单位 🚀 页脚想加什么自己加
+  //     document.getElementById("workboard") &&
+  //   (document.getElementById("workboard").innerHTML = currentTimeHtml);
+  document.getElementById("workboard") &&
+  (document.getElementById("workboard").innerHTML = `本站居然运行了 ${dnum} 天 ${hnum} 小时 ${mnum} 分 ${snum} 秒 <i id="heartbeat" class='fas fa-heartbeat'></i>`);
+
 }
 // 设置重复执行函数，周期1000ms
 setInterval(() => {

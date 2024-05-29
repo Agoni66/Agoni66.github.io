@@ -1393,7 +1393,7 @@ input::placeholder {
   z-index: -999;
   width: 100%;
   height: 100%;
-  background: url('https://cdn.pixabay.com/photo/2024/02/27/03/21/trees-8599312_1280.png');
+  background: url('https://agoni66.github.io/img/아이유.jpg');
   background-attachment: local;
   background-position: center;
   background-size: cover;
@@ -7649,6 +7649,7 @@ button#go-up:hover #percent {
 }
 
 /* 侧边栏个人信息卡片动态渐变色 */
+/* 千焦修改 */
 /* #aside-content > .card-widget.card-info {
   background: linear-gradient(
     -45deg,
@@ -7701,7 +7702,7 @@ button#go-up:hover #percent {
 
 /* 个人信息卡片背景图 */
 [data-theme="light"] #aside-content > .card-widget.card-info {
-  background-image: url(https://tuchuang.voooe.cn/images/2023/02/28/springBg.png);
+  background-image: url(https://s1.vika.cn/space/2024/05/29/bafde224ac8d44f5b118f2a98419cfb6);
   background-repeat: no-repeat;
   background-attachment: inherit;
   background-size: 100%;
@@ -9023,7 +9024,8 @@ i.fas.fa-cog.right_side {
 }
 
 /* 个人信息状态(参考鱼的) */
-.card-info-avatar .author-status-box {
+/* 千焦修改 */
+/* .card-info-avatar .author-status-box {
   position: absolute;
   bottom: 0;
   left: calc(100% - 28px);
@@ -9071,9 +9073,10 @@ i.fas.fa-cog.right_side {
 .card-widget .card-info-avatar {
   display: inline-block;
   position: relative;
-}
+} */
 
 /* 波浪css */
+/* 千焦已经在index.pug修改 */
 .main-hero-waves-area {
   width: 100%;
   position: absolute;
@@ -9268,10 +9271,11 @@ figure.highlight pre .deletion {
 }
 
 /* 信息卡片彩带 */
-/* .author_top:hover {
+/* 千焦修改 */
+.author_top:hover {
   background: url(https://tuchuang.voooe.cn/images/2023/01/02/snow.gif);
   background-size: cover;
-} */
+}
 
 /* 霓虹灯css实现 light_15px 10s linear infinite */
 [data-theme="light"] #site-name,
