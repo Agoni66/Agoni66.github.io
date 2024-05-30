@@ -3045,10 +3045,10 @@ function toggleRightside() {
 
 // 透明度调节滑块
 if (localStorage.getItem("transNum") == undefined) {
-  localStorage.setItem("transNum", 95);
+  localStorage.setItem("transNum", 45);
 }
 var curTransNum = localStorage.getItem("transNum");
-var curTransMini = curTransNum * 0.95;
+var curTransMini = curTransNum * 0.45;
 document.getElementById("transPercent").innerText = `:root{--trans-light: rgba(253, 253, 253, ${curTransNum}%) !important; --trans-dark: rgba(25, 25, 25, ${curTransNum}%) !important} `;
 function setTrans() {
   var elem = document.getElementById("transSet");
@@ -3056,7 +3056,7 @@ function setTrans() {
   var target = document.querySelector('.transValue');
   target.innerHTML = "透明度 (0%-100%): " + newTransNum + "%";
   localStorage.setItem("transNum", newTransNum);
-  curTransMini = newTransNum * 0.95;
+  curTransMini = newTransNum * 0.45;
   curTransNum = newTransNum;  // 更新当前透明度
   document.querySelector('#rang_trans').style.width = curTransMini + "%";
   document.getElementById("transPercent").innerText = `:root{--trans-light: rgba(253, 253, 253, ${newTransNum}%) !important; --trans-dark: rgba(25, 25, 25, ${newTransNum}%) !important} `;
@@ -3178,10 +3178,10 @@ if (localStorage.getItem("blogbg") != undefined) {
   setBg(localStorage.getItem("blogbg"));
 } else {
   document.getElementById("defineBg").innerText = `:root{
-    --default-bg: url(https://github.com/Agoni66/Agoni66.github.io/tree/main/img/아이유 블루밍 PC 배경화면 010.jpg);
-    --darkmode-bg:url(https://github.com/Agoni66/Agoni66.github.io/tree/main/img/鸣潮.png);
-    --mobileday-bg: url(https://lskypro.acozycotage.net/Fomalhaut/img/snow.webp);
-    --mobilenight-bg: url(https://lskypro.acozycotage.net/Fomalhaut/img/mb8.webp);
+    --default-bg: url(https://Agoni66.github.io/img/背景图.jpg);
+    --darkmode-bg:url(https://Agoni66.github.io/img/鸣潮.png);
+    --mobileday-bg: url(https://Agoni66.github.io/img/头像.png);
+    --mobilenight-bg: url(https://Agoni66.github.io/img/雨琦.png);
   }`;
 // 默认背景
 // --default-bg: url(https://lskypro.acozycotage.net/Fomalhaut/img/dm14.webp);
@@ -3319,6 +3319,62 @@ function changeLight(flag) {
 //   }
 // }
 
+
+// 全局变量，跟踪特效脚本是否已加载
+var sakuraScriptLoaded = false;
+
+// 更新setSakura函数
+function setSakura() {
+  var sakuraSet = document.getElementById("sakuraSet");
+
+  if (sakuraSet.checked) {
+    // 加载樱花特效的JavaScript文件
+    if (!sakuraScriptLoaded) {
+      loadSakuraScript();
+      sakuraScriptLoaded = true;
+    }
+    // 保存选择到 localStorage
+    localStorage.setItem("sakuraEnabled", "true");
+  } else {
+    // 移除樱花特效的JavaScript文件
+    if (sakuraScriptLoaded) {
+      removeSakuraScript();
+      sakuraScriptLoaded = false;
+    }
+    // 从localStorage中移除选择
+    localStorage.removeItem("sakuraEnabled");
+    setTimeout(reload, 600);
+  }
+  
+}
+
+// 加载樱花特效的JavaScript文件
+function loadSakuraScript() {
+  var script = document.createElement('script');
+  script.src = "https://npm.elemecdn.com/tzy-blog/lib/js/other/sakura.js";
+  script.id = "sakuraScript";
+  script.async = true;
+  document.body.appendChild(script);
+}
+
+// 移除樱花特效的JavaScript文件
+function removeSakuraScript() {
+  var sakuraScript = document.getElementById("sakuraScript");
+  if (sakuraScript) {
+    sakuraScript.parentNode.removeChild(sakuraScript);
+  }
+}
+
+// 页面加载时检查是否存储了选择
+window.onload = function () {
+  var sakuraEnabled = localStorage.getItem("sakuraEnabled");
+  if (sakuraEnabled === "true") {
+    document.getElementById("sakuraSet").checked = true;
+    setSakura();
+  }
+}
+
+
 // 创建窗口
 var winbox = "";
 
@@ -3382,13 +3438,18 @@ function createWinbox() {
   <div class="content-text" style="font-weight:bold; padding-left:10px"> 雪花特效 (白天模式) </div><input type="checkbox" id="snowSet" onclick="setSnow()">
 </div>
 
+<div class="content" style="display:flex">
+  <div class="content-text" style="font-weight:bold; padding-left:10px">樱花特效 (全天模式)</div>
+  <input type="checkbox" id="sakuraSet" onclick="setSakura()">
+</div>
+
 
 <h2>二、字体设置</h2>
 <p id="swfs">
-<a class="swf" id="swf_puhuiti" href="javascript:;" rel="noopener external nofollow" style="font-family:'puhuiti'!important;color:black" onclick="setFont('puhuiti')">普惠体</a>
-<a class="swf" id="swf_ceyyt" href="javascript:;" rel="noopener external nofollow" style="font-family:'ceyyt'!important;color:black" onclick="setFont('ceyyt')">仓耳渔阳体</a>
-<a class="swf" id="swf_syst" href="javascript:;" rel="noopener external nofollow" style="font-family:'syst'!important;color:black" onclick="setFont('syst')">思源宋体</a>
-<a class="swf" id="swf_qkhyt" href="javascript:;" rel="noopener external nofollow" style="font-family:'qkhyt'!important;color:black" onclick="setFont('qkhyt')">站酷庆科黄油体</a>
+<a class="swf" id="swf_moren" href="javascript:;" rel="noopener external nofollow" style="font-family:'moren'!important;color:black" onclick="setFont('moren')">默认</a>
+<a class="swf" id="swf_gfst" href="javascript:;" rel="noopener external nofollow" style="font-family:'gfst'!important;color:black" onclick="setFont('gfst')">也门古风体</a>
+<a class="swf" id="swf_yshe" href="javascript:;" rel="noopener external nofollow" style="font-family:'yshe'!important;color:black" onclick="setFont('yshe')">优设</a>
+<a class="swf" id="swf_ttwl" href="javascript:;" rel="noopener external nofollow" style="font-family:'ttwl'!important;color:black" onclick="setFont('ttwl')">桃桃乌龙酥</a>
 <a class="swf" id="swf_xwlogo" href="javascript:;" rel="noopener external nofollow" style="font-family:'xwlogo'!important;color:black" onclick="setFont('xwlogo')">站酷小薇LOGO体</a>
 <a class="swf" id="swf_sxmx" href="javascript:;" rel="noopener external nofollow" style="font-family:'sxmx'!important;color:black" onclick="setFont('sxmx')">手写漫写体</a>
 <a class="swf" id="swf_default" href="javascript:;" rel="noopener external nofollow" style="font-family:-apple-system, IBM Plex Mono ,monosapce,'微软雅黑', sans-serif;!important;color:black" onclick="setFont('default')">系统默认</a>
@@ -3412,9 +3473,10 @@ function createWinbox() {
 <center><button onclick="resetBg()" style="background:var(--theme-color);display:block;width:35%;padding:15px 0;border-radius:30px;color:white;"><i class="fa-solid fa-arrows-rotate"></i>&nbsp;恢复默认背景</button></center>
 
 <h3>1. 二次元</h3>
+
 <details class="folding-tag" cyan><summary> 查看二次元背景 </summary>
               <div class='content'>
-              <div class="bgbox"><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://lskypro.acozycotage.net/Fomalhaut/img/home_bg.webp)" class="imgbox" onclick="changeBg('url(https://lskypro.acozycotage.net/Fomalhaut/img/home_bg.webp)')"></a></div>
+              <div class="bgbox"><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(http://img.netbian.com/file/2023/0912/small161308tSznV1694506388.jpg)" class="imgbox" onclick="changeBg('url(http://img.netbian.com/file/2023/0912/small161308tSznV1694506388.jpg)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(http://img.netbian.com/file/2023/1221/small003540AH4M71703090140.jpg)" class="imgbox" onclick="changeBg('url(https://i0.hdslb.com/bfs/article/7cc8826d01e442786d79f31bf4a9fe44d8161944.jpg@1256w_708h_!web-article-pic.avif)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(http://img.netbian.com/file/2024/0229/small23511787iaB1709221877.jpg)" class="imgbox" onclick="changeBg('url(http://img.netbian.com/file/2024/0229/small23511787iaB1709221877.jpg)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(http://img.netbian.com/file/2024/0527/small202554SzC511716812754.jpg)" class="imgbox" onclick="changeBg('url(http://img.netbian.com/file/2024/0527/small202554SzC511716812754.jpg)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(http://img.netbian.com/file/2024/0522/small001144yHAET1716307904.jpg)" class="imgbox" onclick="changeBg('url(http://img.netbian.com/file/2024/0522/small001144yHAET1716307904.jpg)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(http://img.netbian.com/file/2024/0323/small0012132yPPt1711123933.jpg)" class="imgbox" onclick="changeBg('url(http://img.netbian.com/file/2024/0323/small0012132yPPt1711123933.jpg)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://www.toopic.cn/public/uploads/small/1712590406635171259040612.jpg)" class="imgbox" onclick="changeBg('url(https://www.toopic.cn/public/uploads/small/1712590406635171259040612.jpg)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(http://img.netbian.com/file/2023/0418/small154841h3OzP1681804121.jpg)" class="imgbox" onclick="changeBg('url(http://img.netbian.com/file/2023/0418/small154841h3OzP1681804121.jpg)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(http://img.netbian.com/file/2023/0413/small010226TBf4N1681318946.jpg)" class="imgbox" onclick="changeBg('url(http://img.netbian.com/file/2023/0413/small010226TBf4N1681318946.jpg)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://www.toopic.cn/public/uploads/small/171135223486617113522344.jpg)" class="imgbox" onclick="changeBg('url(https://www.toopic.cn/public/uploads/small/171135223486617113522344.jpg)')"></a></div>
               </div>
             </details>
 
@@ -3423,7 +3485,7 @@ function createWinbox() {
 
 <details class="folding-tag" cyan><summary> 查看风景背景 </summary>
               <div class='content'>
-              <div class="bgbox"><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://lskypro.acozycotage.net/Fomalhaut/img/fj1.webp)" class="imgbox" onclick="changeBg('url(https://lskypro.acozycotage.net/Fomalhaut/img/fj1.webp)')"></a></div>
+              <div class="bgbox"><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://www.toopic.cn/public/uploads/small/1711352216853171135221638.jpg)" class="imgbox" onclick="changeBg('url(https://www.toopic.cn/public/uploads/small/1711352216853171135221638.jpg)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://www.toopic.cn/public/uploads/small/1710846308673171084630864.jpg)" class="imgbox" onclick="changeBg('url(https://www.toopic.cn/public/uploads/small/1710846308673171084630864.jpg)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://www.toopic.cn/public/uploads/image/20200412/20200412132735_53783.jpg)" class="imgbox" onclick="changeBg('url(https://www.toopic.cn/public/uploads/image/20200412/20200412132735_53783.jpg)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://images.pexels.com/photos/24778713/pexels-photo-24778713.jpeg?auto=compress&cs=tinysrgb&w=800)" class="imgbox" onclick="changeBg('url(https://images.pexels.com/photos/24778713/pexels-photo-24778713.jpeg?auto=compress&cs=tinysrgb&w=800)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://images.pexels.com/photos/547115/pexels-photo-547115.jpeg?auto=compress&cs=tinysrgb&w=800)" class="imgbox" onclick="changeBg('url(https://images.pexels.com/photos/547115/pexels-photo-547115.jpeg?auto=compress&cs=tinysrgb&w=800)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://images.pexels.com/photos/9391321/pexels-photo-9391321.jpeg?auto=compress&cs=tinysrgb&w=800)" class="imgbox" onclick="changeBg('url(https://images.pexels.com/photos/9391321/pexels-photo-9391321.jpeg?auto=compress&cs=tinysrgb&w=800)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://images.pexels.com/photos/9582594/pexels-photo-9582594.jpeg?auto=compress&cs=tinysrgb&w=800)" class="imgbox" onclick="changeBg('url(https://images.pexels.com/photos/9582594/pexels-photo-9582594.jpeg?auto=compress&cs=tinysrgb&w=800)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://images.pexels.com/photos/11750243/pexels-photo-11750243.jpeg?auto=compress&cs=tinysrgb&w=800)" class="imgbox" onclick="changeBg('url(https://images.pexels.com/photos/11750243/pexels-photo-11750243.jpeg?auto=compress&cs=tinysrgb&w=800)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://images.pexels.com/photos/10520930/pexels-photo-10520930.jpeg?auto=compress&cs=tinysrgb&w=800)" class="imgbox" onclick="changeBg('url(https://images.pexels.com/photos/10520930/pexels-photo-10520930.jpeg?auto=compress&cs=tinysrgb&w=800)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://images.pexels.com/photos/24605372/pexels-photo-24605372.jpeg?auto=compress&cs=tinysrgb&w=800)" class="imgbox" onclick="changeBg('url(https://images.pexels.com/photos/24605372/pexels-photo-24605372.jpeg?auto=compress&cs=tinysrgb&w=800)')"></a></div>
               </div>
             </details>
 
@@ -3431,14 +3493,14 @@ function createWinbox() {
 
 <details class="folding-tag" cyan><summary> 查看萌宠背景 </summary>
               <div class='content'>
-              <div class="bgbox"><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://lskypro.acozycotage.net/Fomalhaut/img/mc1.webp)" class="imgbox" onclick="changeBg('url(https://lskypro.acozycotage.net/Fomalhaut/img/mc1.webp)')"></a></div>
+              <div class="bgbox"><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://images.pexels.com/photos/12052220/pexels-photo-12052220.jpeg?auto=compress&cs=tinysrgb&w=800)" class="imgbox" onclick="changeBg('url(https://images.pexels.com/photos/12052220/pexels-photo-12052220.jpeg?auto=compress&cs=tinysrgb&w=800)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://images.pexels.com/photos/20393148/pexels-photo-20393148.jpeg?auto=compress&cs=tinysrgb&w=600)" class="imgbox" onclick="changeBg('url(https://images.pexels.com/photos/20393148/pexels-photo-20393148.jpeg?auto=compress&cs=tinysrgb&w=600)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://images.pexels.com/photos/17602392/pexels-photo-17602392.jpeg?auto=compress&cs=tinysrgb&w=600)" class="imgbox" onclick="changeBg('url(https://images.pexels.com/photos/17602392/pexels-photo-17602392.jpeg?auto=compress&cs=tinysrgb&w=600)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://images.pexels.com/photos/1198802/pexels-photo-1198802.jpeg?auto=compress&cs=tinysrgb&w=800)" class="imgbox" onclick="changeBg('url(https://images.pexels.com/photos/1198802/pexels-photo-1198802.jpeg?auto=compress&cs=tinysrgb&w=800)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://images.pexels.com/photos/4681107/pexels-photo-4681107.jpeg?auto=compress&cs=tinysrgb&w=800)" class="imgbox" onclick="changeBg('url(https://images.pexels.com/photos/4681107/pexels-photo-4681107.jpeg?auto=compress&cs=tinysrgb&w=800)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://images.pexels.com/photos/792381/pexels-photo-792381.jpeg?auto=compress&cs=tinysrgb&w=800)" class="imgbox" onclick="changeBg('url(https://images.pexels.com/photos/792381/pexels-photo-792381.jpeg?auto=compress&cs=tinysrgb&w=800)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://images.pexels.com/photos/47547/squirrel-animal-cute-rodents-47547.jpeg?auto=compress&cs=tinysrgb&w=800)" class="imgbox" onclick="changeBg('url(https://images.pexels.com/photos/47547/squirrel-animal-cute-rodents-47547.jpeg?auto=compress&cs=tinysrgb&w=800)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://images.pexels.com/photos/1076758/pexels-photo-1076758.jpeg?auto=compress&cs=tinysrgb&w=800)" class="imgbox" onclick="changeBg('url(https://images.pexels.com/photos/1076758/pexels-photo-1076758.jpeg?auto=compress&cs=tinysrgb&w=800)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://images.pexels.com/photos/3608263/pexels-photo-3608263.jpeg?auto=compress&cs=tinysrgb&w=800)" class="imgbox" onclick="changeBg('url(https://images.pexels.com/photos/3608263/pexels-photo-3608263.jpeg?auto=compress&cs=tinysrgb&w=800)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://images.pexels.com/photos/33045/lion-wild-africa-african.jpg?auto=compress&cs=tinysrgb&w=800)" class="imgbox" onclick="changeBg('url(https://images.pexels.com/photos/33045/lion-wild-africa-african.jpg?auto=compress&cs=tinysrgb&w=800)')"></a></div>
               </div>
             </details>
 
 <h3>4. 渐变色</h3>
 <details class="folding-tag" cyan><summary> 查看渐变色背景 </summary>
               <div class='content'>
-              <div class="bgbox"><a href="javascript:;" rel="noopener external nofollow" class="box" style="background: linear-gradient(to right, #544a7d, #ffd452)" onclick="changeBg('linear-gradient(to right, #544a7d, #ffd452)')"></a><a href="javascript:;" rel="noopener external nofollow" class="box" style="background: linear-gradient(to bottom, #7f7fd5, #86a8e7, #91eae4)" onclick="changeBg('linear-gradient(to bottom, #7f7fd5, #86a8e7, #91eae4)')"></a><a href="javascript:;" rel="noopener external nofollow" class="box" style="background: linear-gradient(to left, #654ea3, #eaafc8)" onclick="changeBg('linear-gradient(to left, #654ea3, #eaafc8)')"></a><a href="javascript:;" rel="noopener external nofollow" class="box" style="background: linear-gradient(to top, #feac5e, #c779d0, #4bc0c8)" onclick="changeBg('linear-gradient(to top, #feac5e, #c779d0, #4bc0c8)')"></a><a href="javascript:;" rel="noopener external nofollow" class="box" style="background: linear-gradient(to top, #d3959b, #bfe6ba)" onclick="changeBg('linear-gradient(to top, #d3959b, #bfe6ba)')"></a><a href="javascript:;" rel="noopener external nofollow" class="box" style="background: linear-gradient(to top, #8360c3, #2ebf91)" onclick="changeBg('linear-gradient(to top, #8360c3, #2ebf91)')"></a><a href="javascript:;" rel="noopener external nofollow" class="box" style="background: linear-gradient(to top, #108dc7, #ef8e38)" onclick="changeBg('linear-gradient(to top, #108dc7, #ef8e38)')"></a><a href="javascript:;" rel="noopener external nofollow" class="box" style="background: linear-gradient(to top, #355c7d, #6c5b7b, #c06c84)" onclick="changeBg('linear-gradient(to top, #355c7d, #6c5b7b, #c06c84)')"></a></div>
+              <div class="bgbox"><a href="javascript:;" rel="noopener external nofollow" class="box" style="background: linear-gradient(to right, #544a7d, #ffd452)" onclick="changeBg('linear-gradient(to right, #544a7d, #ffd452)')"></a><a href="javascript:;" rel="noopener external nofollow" class="box" style="background: linear-gradient(to bottom, #7f7fd5, #86a8e7, #91eae4)" onclick="changeBg('linear-gradient(to bottom, #7f7fd5, #86a8e7, #91eae4)')"></a><a href="javascript:;" rel="noopener external nofollow" class="box" style="background: linear-gradient(to left, #654ea3, #eaafc8)" onclick="changeBg('linear-gradient(to left, #654ea3, #eaafc8)')"></a><a href="javascript:;" rel="noopener external nofollow" class="box" style="background: linear-gradient(to top, #feac5e, #c779d0, #4bc0c8)" onclick="changeBg('linear-gradient(to top, #feac5e, #c779d0, #4bc0c8)')"></a><a href="javascript:;" rel="noopener external nofollow" class="box" style="background: linear-gradient(to top, #d3959b, #bfe6ba)" onclick="changeBg('linear-gradient(to top, #d3959b, #bfe6ba)')"></a><a href="javascript:;" rel="noopener external nofollow" class="box" style="background: linear-gradient(to top, #8360c3, #2ebf91)" onclick="changeBg('linear-gradient(to top, #8360c3, #2ebf91)')"></a><a href="javascript:;" rel="noopener external nofollow" class="box" style="background: linear-gradient(to top, #108dc7, #ef8e38)" onclick="changeBg('linear-gradient(to top, #108dc7, #ef8e38)')"></a><a href="javascript:;" rel="noopener external nofollow" class="box" style="background: linear-gradient(to top, #355c7d, #6c5b7b, #c06c84)" onclick="changeBg('linear-gradient(to top, #355c7d, #6c5b7b, #c06c84)')"></a><a href="javascript:;" rel="noopener external nofollow" class="box" style="background: linear-gradient(to right, #544a7d, #ffd452)" onclick="changeBg('linear-gradient(to right, #544a7d, #ffd452)')"></a><a href="javascript:;" rel="noopener external nofollow" class="box" style="background: linear-gradient(to bottom, #7f7fd5, #86a8e7, #91eae4)" onclick="changeBg('linear-gradient(to bottom, #7f7fd5, #86a8e7, #91eae4)')"></a></div>
               </div>
             </details>
 

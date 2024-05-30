@@ -1367,7 +1367,7 @@ body {
   background: var(--global-bg);
   color: var(--font-color);
   font-size: var(--global-font-size);
-  font-family: var(--global-font), -apple-system, 'puhuiti', 'ceyyt', 'syst', 'qkhyt', 'xwlogo', 'sxmx',  sans-serif;;
+  font-family: var(--global-font), -apple-system, 'moren', 'gfst', 'yshe', 'ttwl', 'xwlogo', 'sxmx', sans-serif;;
   line-height: 2;
   -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
@@ -1393,7 +1393,7 @@ input::placeholder {
   z-index: -999;
   width: 100%;
   height: 100%;
-  background: url(https://agoni66.github.io/img/%E8%83%8C%E6%99%AF%E5%9B%BE.jpg);
+  background: var(--default-bg);
   background-attachment: local;
   background-position: center;
   background-size: cover;
@@ -6581,72 +6581,72 @@ blockquote.pullquote.right {
 
 /* 字体引入 */
 
-@font-face {
+/* @font-face {
   /* 为载入的字体取名字(随意) */
-  font-family: YSHST;
+  /* font-family: YSHST; */
   /* 字体文件地址(相对或者绝对路径都可以) */ 
-  src: url(https://data-static.netdun.net/Fomalhaut/fonts/优设好身体.woff2);
+  /* src: url(https://data-static.netdun.net/Fomalhaut/fonts/优设好身体.woff2); */
   /* 定义显示样式 */
-  font-display: swap;
-}
+  /* font-display: swap; */
+/* } */
 
-@font-face {
+/* @font-face {
   font-family: MiSans;
   src: url(https://data-static.netdun.net/Fomalhaut/fonts/MiSans.woff2);
   font-display: swap;
-}
+} */
 
-@font-face {
+/* @font-face {
   font-family: HYTMR;
   src: url(https://data-static.netdun.net/Fomalhaut/fonts/HYTangMeiRen55W.woff2);
   font-display: swap;
-}
+} */
 
-@font-face {
+/* @font-face {
   font-family: LXGW;
   src: url(https://data-static.netdun.net/Fomalhaut/fonts/霞鹜文楷.woff2);
   font-display: swap;
-}
-
+} */
+/* 
 @font-face {
   font-family: TTQHB;
   src: url(https://data-static.netdun.net/Fomalhaut/fonts/甜甜圈海报字体.woff2);
   font-display: swap;
-}
+} */
 
-@font-face {
+/* @font-face {
   font-family: Consolas_1;
   src: url(https://data-static.netdun.net/Fomalhaut/fonts/Consolas.woff2);
   font-display: swap;
-}
+} */
 
-@font-face {
+/* @font-face {
   font-family: ZhuZiAWan;
   src: url(https://data-static.netdun.net/Fomalhaut/fonts/ZhuZiAWan2.woff2);
   font-display: swap;
-}
+} */
 /* 千焦修改 */
 @font-face {
-  font-family: puhuiti;
-  src: url(/font/普惠体.woff2);
+  font-family: moren;
+  src: url();
   font-display: swap;
 }
 
 @font-face {
-  font-family: ceyyt;
-  src: url(/font/仓耳渔阳体.woff2);
+  font-family:  gfst;
+  src: url(/font/GFST.ttf);
   font-display: swap;
 }
 
 @font-face {
-  font-family: syst;
-  src: url(/font/思源宋体.woff2);
+  font-family: yshe;
+  src: url(/font/YSHaoShenTi.ttf);
   font-display: swap;
 }
 
 @font-face {
-  font-family: qkhyt;
-  src: url(/font/站酷庆科黄油体.tty);
+  font-family: ttwl;
+  src: url(/font/AaTaoTaoWuLongNaiLaoSu.ttf);
   font-display: swap;
 }
 
@@ -6659,6 +6659,18 @@ blockquote.pullquote.right {
 @font-face {
   font-family: sxmx;
   src: url(/font/AaManYuShouXieTi-2.ttf);
+  font-display: swap;
+}
+
+@font-face {
+  font-family: zcks;
+  src: url(/font/ZhaoCaiKaiShu.ttf);
+  font-display: swap;
+}
+
+@font-face {
+  font-family: lttx;
+  src: url(/font/LanTingTiXu-GuoFengXingKai-2.ttf);
   font-display: swap;
 }
 
@@ -7742,13 +7754,13 @@ button#go-up:hover #percent {
 
 /* 个人信息卡片背景图 */
 [data-theme="light"] #aside-content > .card-widget.card-info {
-  background-image: url(/img/3.jpg);
+  background-image: url(https://agoni66.github.io/img/3.png);
   background-repeat: no-repeat;
   background-attachment: inherit;
   background-size: 100%;
 }
 [data-theme="dark"] #aside-content > .card-widget.card-info {
-  background-image: url(/img/3.jpg);
+  background-image: url(https://agoni66.github.io/img/3.png);
   background-repeat: no-repeat;
   background-attachment: inherit;
   background-size: 100%;
