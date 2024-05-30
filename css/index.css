@@ -7753,14 +7753,17 @@ button#go-up:hover #percent {
 } */
 
 /* 个人信息卡片背景图 */
+/* 千焦修改 */
 [data-theme="light"] #aside-content > .card-widget.card-info {
-  background-image: url(https://agoni66.github.io/img/3.png);
+  background-image: url(http://picture.gptkong.com/20240531/02482b9049e57547a9bd9a2d649ab4f365.jpg);
+  /* background-image: url(https://agoni66.github.io/img/3.png); */
   background-repeat: no-repeat;
   background-attachment: inherit;
   background-size: 100%;
 }
 [data-theme="dark"] #aside-content > .card-widget.card-info {
-  background-image: url(https://agoni66.github.io/img/3.png);
+  background-image: url(http://picture.gptkong.com/20240531/0240927825d1314ba8b4be01dcf520927d.jpg);
+  /* background-image: url(https://agoni66.github.io/img/3.png); */
   background-repeat: no-repeat;
   background-attachment: inherit;
   background-size: 100%;
