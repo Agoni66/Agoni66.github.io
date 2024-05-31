@@ -1195,6 +1195,7 @@ console.warn = function () { };
 //----------------------------------------------------------------
 
 /* 夜间模式切换动画 start */
+// 千焦修改
 function switchNightMode() {
   document.querySelector('body').insertAdjacentHTML('beforeend', '<div class="Cuteen_DarkSky"><div class="Cuteen_DarkPlanet"><div id="sun"></div><div id="moon"></div></div></div>'),
     setTimeout(function () {
@@ -1226,8 +1227,8 @@ function switchNightMode() {
       new Vue({
         data: function () {
           this.$notify({
-            title: "关灯啦🌙",
-            message: "当前已成功切换至夜间模式！",
+            title: "天黑了🌙",
+            message: "狼人们请睁眼🔪",
             position: 'top-left',
             offset: 50,
             showClose: true,
@@ -1254,7 +1255,7 @@ function switchNightMode() {
         data: function () {
           this.$notify({
             title: "天亮了🌞",
-            message: "当前已成功切换至白天模式，昨晚是平安夜！",
+            message: "昨晚是平安夜！🦄",
             position: 'top-left',
             offset: 50,
             showClose: true,
@@ -2953,8 +2954,9 @@ function setFontBorder() {
 
 
 // 设置主题色
+// 千焦修改
 if (localStorage.getItem("themeColor") == undefined) {
-  localStorage.setItem("themeColor", "green");
+  localStorage.setItem("themeColor", "darkblue");
 }
 setColor(localStorage.getItem("themeColor"));
 function setColor(c) {
@@ -3445,7 +3447,6 @@ function createWinbox() {
   <input type="checkbox" id="sakuraSet" onclick="setSakura()">
 </div>
 
-//  
 
 <h2>二、字体设置</h2>
 <p id="swfs">
