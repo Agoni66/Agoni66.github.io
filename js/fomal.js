@@ -3182,13 +3182,14 @@ if (localStorage.getItem("blogbg") != undefined) {
 } else {
   document.getElementById("defineBg").innerText = `:root{
     --default-bg: url(https://Agoni66.github.io/img/背景图.jpg);
-    --darkmode-bg:url(https://Agoni66.github.io/img/鸣潮.png);
+    --darkmode-bg:url(https://Agoni66.github.io/img/NMIXX.jpg);
     --mobileday-bg: url(https://Agoni66.github.io/img/default-phone.jpg);
     --mobilenight-bg: url(https://Agoni66.github.io/img/default-dark.jpg);
   }`;
 // 默认背景
 // --default-bg: url(https://lskypro.acozycotage.net/Fomalhaut/img/dm14.webp);
 // --darkmode-bg:url(https://lskypro.acozycotage.net/Fomalhaut/img/yuanshen1.webp);
+// --darkmode-bg:url(https://Agoni66.github.io/img/해원1.jpg);
 // --mobileday-bg: url(https://lskypro.acozycotage.net/Fomalhaut/img/snow.webp);
 // --mobilenight-bg: url(https://lskypro.acozycotage.net/Fomalhaut/img/mb8.webp);
 }
