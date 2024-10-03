@@ -7638,7 +7638,7 @@ button#go-up:hover #percent {
 /* 千焦修改 */
 [data-theme="light"] #aside-content > .card-widget.card-info {
   /* background-image: url(https://agoni66.github.io/img/3.png); */
-  background-image: url(/blog_Fomalhaut/source/img/infoback.jpg);
+  background-image: url(https://agoni66.github.io/img/infoback.jpg);
   background-repeat: no-repeat;
   background-attachment: inherit;
   background-size: 100%;
@@ -7646,6 +7646,7 @@ button#go-up:hover #percent {
 [data-theme="dark"] #aside-content > .card-widget.card-info {
   /* background-image: url(http://picture.gptkong.com/20240531/0240927825d1314ba8b4be01dcf520927d.jpg); */
   background-image: url(https://agoni66.github.io/img/3.png);
+  background-image: url(https://agoni66.github.io/img/infodark.jpg);
   background-repeat: no-repeat;
   background-attachment: inherit;
   background-size: 100%;
