@@ -4,11 +4,36 @@
   
     
     <entry>
+      <title>第二章 复杂度分析</title>
+      <link href="/posts/1000122.html"/>
+      <url>/posts/1000122.html</url>
+      
+        <content type="html"><![CDATA[<p><img src="../img/%E7%AE%97%E6%B3%95/0018.jpeg" alt="JPEG image.jpeg"></p><div class="note blue no-icon flat"><p><font size="4"><b>数据库系统概念导航🚀🚀🚀</b></font></p><ol><li><p>🐻‍❄️ <a href="https://agoni66.github.io/posts/1000121.html">第一章 初始算法</a></p></li><li><p>🦝 <a href="https://agoni66.github.io/posts/1000122.html">第二章 复杂度分析</a> ⇦ 当前位置🪂</p></li></ol></div><h2 id="迭代与递归">迭代与递归</h2><p>「迭代 iteration」是一种重复执行某个任务的控制结构。在迭代中，程序会在满足一定的条件下重复执行某段代码，直到这个条件不再满足</p><blockquote><p><strong>for 循环的代码更加紧凑，while 循环更加灵活</strong></p></blockquote><p>每一次嵌套都是一次“升维”，有关时间复杂度</p><p>「递归 recursion」是一种算法策略，通过函数调用自身来解决问题</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">recur</span>(<span class="params">n:<span class="built_in">int</span></span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line"><span class="string">&quot;&quot;&quot; 递归，1+2+3+……+n &quot;&quot;&quot;</span></span><br><span class="line"><span class="comment"># 终止条件</span></span><br><span class="line"><span class="keyword">if</span> n = <span class="number">1</span>:</span><br><span class="line"><span class="keyword">return</span> <span class="number">1</span></span><br><span class="line"><span class="comment"># 递:递归调用</span></span><br><span class="line">  res = recur(n - <span class="number">1</span>)</span><br><span class="line"><span class="comment"># 归:返回结果 </span></span><br><span class="line"><span class="keyword">return</span> n + res</span><br></pre></td></tr></table></figure><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">hanoi</span>(<span class="params">n, source, target, auxiliary</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot; 汉诺塔 &quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">if</span> n == <span class="number">1</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&quot;<span class="subst">&#123;source&#125;</span> -&gt; <span class="subst">&#123;target&#125;</span>&quot;</span>)</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    hanoi(n - <span class="number">1</span>, source, auxiliary, target)</span><br><span class="line">    hanoi(<span class="number">1</span>, source, target, auxiliary)</span><br><span class="line">    hanoi(n - <span class="number">1</span>, auxiliary, target, source)</span><br></pre></td></tr></table></figure><p>迭代：自下而上，不断重复</p><p>递归：自上而下，划分为更小的子问题</p><p><img src="../img/%E7%AE%97%E6%B3%95/0019.png" alt="Untitled"></p><hr><h2 id="时间复杂度">时间复杂度</h2><p><img src="../img/%E7%AE%97%E6%B3%95/0020.png" alt="Untitled"></p><p><img src="../img/%E7%AE%97%E6%B3%95/0021.png" alt="Untitled"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 编程学习 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 算法 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>第一章 初始算法</title>
       <link href="/posts/1000121.html"/>
       <url>/posts/1000121.html</url>
       
-        <content type="html"><![CDATA[<p><img src="../img/%E7%AE%97%E6%B3%95/0016.jpeg" alt="JPEG image.jpeg"></p><p>「算法 algorithm」是在有限时间内解决特定问题的一组指令或操作步骤，它具有以下特性。</p><ul><li>问题是明确的，包含清晰的<strong>输入</strong>和<strong>输出</strong>定义。</li><li>具有可行性，能够在有限步骤、时间和内存空间下完成。</li><li>各步骤都有确定的含义，在相同的输入和运行条件下，输出始终相同。</li></ul><p>「数据结构 data structure」是计算机中组织和存储数据的方式，具有以下设计目标。</p><ul><li>空间占用尽量少，以节省计算机内存。</li><li>数据操作尽可能快速，涵盖数据访问、添加、删除、更新等。</li><li>提供简洁的数据表示和逻辑信息，以便算法高效运行。</li></ul><p><font color="blue"><strong>数据结构与算法的关系</strong></font></p><ul><li>数据结构是算法的基石。数据结构为算法提供了结构化存储的数据，以及操作数据的方法。</li><li>算法是数据结构发挥作用的舞台。数据结构本身仅存储数据信息，结合算法才能解决特定问题。</li><li>算法通常可以基于不同的数据结构实现，但执行效率可能相差很大，选择合适的数据结构是关键。</li></ul><table><thead><tr><th><strong>数据结构与算法</strong></th><th><strong>拼装积木</strong></th></tr></thead><tbody><tr><td>输入数据</td><td>未拼装的积木</td></tr><tr><td>数据结构</td><td>积木组织形式，包括形状、大小、连接方式等</td></tr><tr><td>算法</td><td>把积木拼成目标形态的一系列操作步骤</td></tr><tr><td>输出数据</td><td>积木模型</td></tr></tbody></table><p><img src="../img/%E7%AE%97%E6%B3%95/0017.png" alt=""></p>]]></content>
+        <content type="html"><![CDATA[<p><img src="../img/%E7%AE%97%E6%B3%95/0016.jpeg" alt="JPEG image.jpeg"></p><div class="note blue no-icon flat"><p><font size="4"><b>数据库系统概念导航🚀🚀🚀</b></font></p><ol><li><p>🐻‍❄️ <a href="https://agoni66.github.io/posts/1000121.html">第一章 初始算法</a> ⇦ 当前位置🪂</p></li><li><p>🦝 <a href="https://agoni66.github.io/posts/1000122.html">第二章 复杂度分析</a></p></li></ol></div><p>「算法 algorithm」是在有限时间内解决特定问题的一组指令或操作步骤，它具有以下特性。</p><ul><li>问题是明确的，包含清晰的<strong>输入</strong>和<strong>输出</strong>定义。</li><li>具有可行性，能够在有限步骤、时间和内存空间下完成。</li><li>各步骤都有确定的含义，在相同的输入和运行条件下，输出始终相同。</li></ul><p>「数据结构 data structure」是计算机中组织和存储数据的方式，具有以下设计目标。</p><ul><li>空间占用尽量少，以节省计算机内存。</li><li>数据操作尽可能快速，涵盖数据访问、添加、删除、更新等。</li><li>提供简洁的数据表示和逻辑信息，以便算法高效运行。</li></ul><p><strong><font color="blue">数据结构与算法的关系</font></strong></p><ul><li>数据结构是算法的基石。数据结构为算法提供了结构化存储的数据，以及操作数据的方法。</li><li>算法是数据结构发挥作用的舞台。数据结构本身仅存储数据信息，结合算法才能解决特定问题。</li><li>算法通常可以基于不同的数据结构实现，但执行效率可能相差很大，选择合适的数据结构是关键。</li></ul><table><thead><tr><th><strong>数据结构与算法</strong></th><th><strong>拼装积木</strong></th></tr></thead><tbody><tr><td>输入数据</td><td>未拼装的积木</td></tr><tr><td>数据结构</td><td>积木组织形式，包括形状、大小、连接方式等</td></tr><tr><td>算法</td><td>把积木拼成目标形态的一系列操作步骤</td></tr><tr><td>输出数据</td><td>积木模型</td></tr></tbody></table><p><img src="../img/%E7%AE%97%E6%B3%95/0017.png" alt=""></p>]]></content>
       
       
       <categories>
@@ -681,11 +706,11 @@
       
         <tags>
             
-            <tag> 治愈 </tag>
-            
             <tag> 文学 </tag>
             
             <tag> 随记 </tag>
+            
+            <tag> 治愈 </tag>
             
         </tags>
       
@@ -710,11 +735,11 @@
       
         <tags>
             
-            <tag> 治愈 </tag>
-            
             <tag> 文学 </tag>
             
             <tag> 随记 </tag>
+            
+            <tag> 治愈 </tag>
             
         </tags>
       
@@ -739,11 +764,11 @@
       
         <tags>
             
+            <tag> 正能量 </tag>
+            
             <tag> 文学 </tag>
             
             <tag> 随记 </tag>
-            
-            <tag> 正能量 </tag>
             
         </tags>
       
