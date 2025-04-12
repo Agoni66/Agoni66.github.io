@@ -3182,10 +3182,10 @@ if (localStorage.getItem("blogbg") != undefined) {
   setBg(localStorage.getItem("blogbg"));
 } else {
   document.getElementById("defineBg").innerText = `:root{
-    --default-bg: url(https://Agoni66.github.io/img/changeup.jpg);
-    --darkmode-bg:url(https://Agoni66.github.io/img/NMIXX.jpg);
-    --mobileday-bg: url(https://Agoni66.github.io/img/haewon.jpg);
-    --mobilenight-bg: url(https://Agoni66.github.io/img/nmixx2.jpg);
+    --default-bg: url(https://Agoni66.github.io/img/haewon_2.JPG);
+    --darkmode-bg:url(https://Agoni66.github.io/img/background_1.JPG);
+    --mobileday-bg: url(https://Agoni66.github.io/img/haewon_3.png);
+    --mobilenight-bg: url(https://Agoni66.github.io/img/haewon_4.jpg);
   }`;
 // 默认背景
 // --default-bg: url(https://lskypro.acozycotage.net/Fomalhaut/img/dm14.webp);
