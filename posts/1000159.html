@@ -1,0 +1,937 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><div id="myscoll"></div><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>python基础--数据可视化之使用API | 小黄鸭的窝窝✨</title><meta name="keywords" content="基础"><meta name="author" content="小黄鸭的窝窝✨"><meta name="copyright" content="小黄鸭的窝窝✨"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="基础八">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python基础--数据可视化之使用API">
+<meta property="og:url" content="https://agoni66.github.io/posts/1000159.html">
+<meta property="og:site_name" content="小黄鸭的窝窝✨">
+<meta property="og:description" content="基础八">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://pic1.imgdb.cn/item/67fbbebb88c538a9b5ce4ac0.jpg">
+<meta property="article:published_time" content="2025-02-20T03:30:00.000Z">
+<meta property="article:modified_time" content="2025-04-13T13:40:34.426Z">
+<meta property="article:author" content="小黄鸭的窝窝✨">
+<meta property="article:tag" content="基础">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://pic1.imgdb.cn/item/67fbbebb88c538a9b5ce4ac0.jpg"><link rel="shortcut icon" href="/"><link rel="canonical" href="https://agoni66.github.io/posts/1000159"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-M/font-awesome/6.0.0/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.staticfile.org/fancyapps-ui/4.0.31/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":true,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: {"limitDay":1000,"position":"top","messagePrev":"It has been","messageNext":"days since the last update, the content of the article may be outdated."},
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":230},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: true,
+    post: true
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: 小黄鸭的窝窝✨","link":"链接: ","source":"来源: 小黄鸭的窝窝✨","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdnjs.cloudflare.com/ajax/libs/flickr-justified-gallery/2.1.2/fjGallery.min.js',
+      css: 'https://cdnjs.cloudflare.com/ajax/libs/flickr-justified-gallery/2.1.2/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'python基础--数据可视化之使用API',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2025-04-13 21:40:34'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const now = new Date()
+          const hour = now.getHours()
+          const isNight = hour <= 6 || hour >= 18
+          if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+          else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><script src="https://npm.elemecdn.com/echarts@4.9.0/dist/echarts.min.js"></script><link rel="stylesheet" href="https://cdn1.tianli0.top/npm/element-ui@2.15.6/packages/theme-chalk/lib/index.css"><style id="themeColor"></style><style id="rightSide"></style><style id="transPercent"></style><style id="blurNum"></style><style id="settingStyle"></style><span id="fps"></span><style id="defineBg"></style><style id="menu_shadow"></style><svg aria-hidden="true" style="position:absolute; overflow:hidden; width:0; height:0"><symbol id="icon-sun" viewBox="0 0 1024 1024"><path d="M960 512l-128 128v192h-192l-128 128-128-128H192v-192l-128-128 128-128V192h192l128-128 128 128h192v192z" fill="#FFD878" p-id="8420"></path><path d="M736 512a224 224 0 1 0-448 0 224 224 0 1 0 448 0z" fill="#FFE4A9" p-id="8421"></path><path d="M512 109.248L626.752 224H800v173.248L914.752 512 800 626.752V800h-173.248L512 914.752 397.248 800H224v-173.248L109.248 512 224 397.248V224h173.248L512 109.248M512 64l-128 128H192v192l-128 128 128 128v192h192l128 128 128-128h192v-192l128-128-128-128V192h-192l-128-128z" fill="#4D5152" p-id="8422"></path><path d="M512 320c105.888 0 192 86.112 192 192s-86.112 192-192 192-192-86.112-192-192 86.112-192 192-192m0-32a224 224 0 1 0 0 448 224 224 0 0 0 0-448z" fill="#4D5152" p-id="8423"></path></symbol><symbol id="icon-moon" viewBox="0 0 1024 1024"><path d="M611.370667 167.082667a445.013333 445.013333 0 0 1-38.4 161.834666 477.824 477.824 0 0 1-244.736 244.394667 445.141333 445.141333 0 0 1-161.109334 38.058667 85.077333 85.077333 0 0 0-65.066666 135.722666A462.08 462.08 0 1 0 747.093333 102.058667a85.077333 85.077333 0 0 0-135.722666 65.024z" fill="#FFB531" p-id="11345"></path><path d="M329.728 274.133333l35.157333-35.157333a21.333333 21.333333 0 1 0-30.165333-30.165333l-35.157333 35.157333-35.114667-35.157333a21.333333 21.333333 0 0 0-30.165333 30.165333l35.114666 35.157333-35.114666 35.157334a21.333333 21.333333 0 1 0 30.165333 30.165333l35.114667-35.157333 35.157333 35.157333a21.333333 21.333333 0 1 0 30.165333-30.165333z" fill="#030835" p-id="11346"></path></symbol></svg><!-- hexo injector head_end start --><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiperstyle.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-footer-beautify@1.0.0/lib/runtime.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-wowjs/lib/animate.min.css" media="print" onload="this.media='screen'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/font-awesome-animation.min.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/tag_plugins.css" media="defer" onload="this.media='all'"><script src="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/carousel-touch.js"></script><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-filter-gitcalendar/lib/gitcalendar.css" media="print" onload="this.media='all'"><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="小黄鸭的窝窝✨" type="application/atom+xml">
+</head><body><div id="loading-box" onclick="document.getElementById(&quot;loading-box&quot;).classList.add(&quot;loaded&quot;)"><div class="loading-bg"><div class="loading-img"></div><div class="loading-image-dot"></div></div></div><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/haewon_6.jpg" onerror="onerror=null;src='/assets/r1.jpg'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">48</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">32</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-home"></use></svg><span class="menu_word" style="font-size:17px"> 首页</span></a></div><div class="menus_item"><a class="site-page group faa-parent animated-hover hide" href="javascript:void(0);"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon--article"></use></svg><span class="menu_word" style="font-size:17px"> 文章</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/archives/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-guidang1">                   </use></svg><span class="menu_word" style="font-size:17px"> 归档</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/tags/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-sekuaibiaoqian">                   </use></svg><span class="menu_word" style="font-size:17px"> 标签</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/categories/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-fenlei">                   </use></svg><span class="menu_word" style="font-size:17px"> 分类</span></a></li></ul></div><div class="menus_item"><a class="site-page group faa-parent animated-hover hide" href="javascript:void(0);"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-pinweishenghuo"></use></svg><span class="menu_word" style="font-size:17px"> 休闲</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/life/music/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-yinle">                   </use></svg><span class="menu_word" style="font-size:17px"> 八音盒</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/life/movies/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-dianying1">                   </use></svg><span class="menu_word" style="font-size:17px"> 电影</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/life/games/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-youxishoubing">                   </use></svg><span class="menu_word" style="font-size:17px"> 游戏</span></a></li></ul></div><div class="menus_item"><a class="site-page group faa-parent animated-hover hide" href="javascript:void(0);"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-xiangzi"></use></svg><span class="menu_word" style="font-size:17px"> 八宝箱</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/box/gallery/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-tubiaozhizuomoban">                   </use></svg><span class="menu_word" style="font-size:17px"> 追星墙</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/box/nav/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-zhifengche">                   </use></svg><span class="menu_word" style="font-size:17px"> 网址导航</span></a></li></ul></div><div class="menus_item"><a class="site-page group faa-parent animated-hover hide" href="javascript:void(0);"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-maoliang"></use></svg><span class="menu_word" style="font-size:17px"> 个人</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/site/charts/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-shujutongji1">                   </use></svg><span class="menu_word" style="font-size:17px"> 文章统计</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/site/time/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-xianxingshalou">                   </use></svg><span class="menu_word" style="font-size:17px"> 旧时光</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/personal/about/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-paperplane">                   </use></svg><span class="menu_word" style="font-size:17px"> 关于</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">小黄鸭的窝窝✨</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-home"></use></svg><span class="menu_word" style="font-size:17px"> 首页</span></a></div><div class="menus_item"><a class="site-page group faa-parent animated-hover hide" href="javascript:void(0);"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon--article"></use></svg><span class="menu_word" style="font-size:17px"> 文章</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/archives/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-guidang1">                   </use></svg><span class="menu_word" style="font-size:17px"> 归档</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/tags/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-sekuaibiaoqian">                   </use></svg><span class="menu_word" style="font-size:17px"> 标签</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/categories/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-fenlei">                   </use></svg><span class="menu_word" style="font-size:17px"> 分类</span></a></li></ul></div><div class="menus_item"><a class="site-page group faa-parent animated-hover hide" href="javascript:void(0);"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-pinweishenghuo"></use></svg><span class="menu_word" style="font-size:17px"> 休闲</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/life/music/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-yinle">                   </use></svg><span class="menu_word" style="font-size:17px"> 八音盒</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/life/movies/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-dianying1">                   </use></svg><span class="menu_word" style="font-size:17px"> 电影</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/life/games/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-youxishoubing">                   </use></svg><span class="menu_word" style="font-size:17px"> 游戏</span></a></li></ul></div><div class="menus_item"><a class="site-page group faa-parent animated-hover hide" href="javascript:void(0);"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-xiangzi"></use></svg><span class="menu_word" style="font-size:17px"> 八宝箱</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/box/gallery/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-tubiaozhizuomoban">                   </use></svg><span class="menu_word" style="font-size:17px"> 追星墙</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/box/nav/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-zhifengche">                   </use></svg><span class="menu_word" style="font-size:17px"> 网址导航</span></a></li></ul></div><div class="menus_item"><a class="site-page group faa-parent animated-hover hide" href="javascript:void(0);"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-maoliang"></use></svg><span class="menu_word" style="font-size:17px"> 个人</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/site/charts/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-shujutongji1">                   </use></svg><span class="menu_word" style="font-size:17px"> 文章统计</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/site/time/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-xianxingshalou">                   </use></svg><span class="menu_word" style="font-size:17px"> 旧时光</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/personal/about/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-paperplane">                   </use></svg><span class="menu_word" style="font-size:17px"> 关于</span></a></li></ul></div></div><center id="name-container"><a id="page-name" href="javascript:scrollToTop()">PAGE_NAME</a></center><div id="nav-right"><div id="search-button"><a class="search faa-parent animated-hover" title="检索站内任何你想要的信息"><svg class="faa-tada icon" style="height:24px;width:24px;fill:currentColor;position:relative;top:6px" aria-hidden="true"><use xlink:href="#icon-valentine_-search-love-find-heart"></use></svg><span> 搜索</span></a></div><a class="meihua faa-parent animated-hover" onclick="toggleWinbox()" title="美化设置-自定义你的风格" id="meihua-button"><svg class="faa-tada icon" style="height:26px;width:26px;fill:currentColor;position:relative;top:8px" aria-hidden="true"><use xlink:href="#icon-tupian1"></use></svg></a><a class="sun_moon faa-parent animated-hover" onclick="switchNightMode()" title="浅色和深色模式转换" id="nightmode-button"><svg class="faa-tada" style="height:25px;width:25px;fill:currentColor;position:relative;top:7px" viewBox="0 0 1024 1024"><use id="modeicon" xlink:href="#icon-moon">       </use></svg></a><div id="toggle-menu"><a><i class="fas fa-bars fa-fw"></i></a></div></div></div></nav><div id="post-info"><h1 class="post-title">python基础--数据可视化之使用API</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><svg class="meta_icon post-meta-icon" style="width:30px;height:30px;position:relative;top:10px"><use xlink:href="#icon-rili"></use></svg><span class="post-meta-label">发表于 </span><time class="post-meta-date-created" datetime="2025-02-20T03:30:00.000Z" title="发表于 2025-02-20 11:30:00">2025-02-20</time><span class="post-meta-separator">|</span><svg class="meta_icon post-meta-icon" style="width:18px;height:18px;position:relative;top:5px"><use xlink:href="#icon-gengxin1"></use></svg><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-04-13T13:40:34.426Z" title="更新于 2025-04-13 21:40:34">2025-04-13</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><svg class="meta_icon post-meta-icon" style="width:18px;height:18px;position:relative;top:5px"><use xlink:href="#icon-biaoqian"></use></svg><a class="post-meta-categories" href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/">编程学习</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><svg class="meta_icon post-meta-icon" style="width:25px;height:25px;position:relative;top:8px"><use xlink:href="#icon-charuword"></use></svg><span class="post-meta-label">字数总计:</span><span class="word-count">7390</span><span class="post-meta-separator">|</span><svg class="meta_icon post-meta-icon" style="width:20px;height:20px;position:relative;top:5px"><use xlink:href="#icon-shizhong"></use></svg><span class="post-meta-label">阅读时长:</span><span>31分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="python基础--数据可视化之使用API"><svg class="meta_icon post-meta-icon" style="width:25px;height:25px;position:relative;top:5px"><use xlink:href="#icon-eye"></use></svg><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><div class="note orange no-icon flat"><p><font size="4"><b>python基础导航✨✨✨</b></font></p>
+<ol>
+<li>
+<p>🐻‍❄️<a href="https://agoni66.github.io/posts/1000150.html">python基础–变量与列表</a></p>
+</li>
+<li>
+<p>🐳<a href="https://agoni66.github.io/posts/1000151.html">python基础–if语句与字典</a></p>
+</li>
+<li>
+<p>🐨<a href="https://agoni66.github.io/posts/1000152.html">python基础–用户输入和while循环</a></p>
+</li>
+<li>
+<p>🐰<a href="https://agoni66.github.io/posts/1000153.html">python基础–函数</a></p>
+</li>
+<li>
+<p>🐥<a href="https://agoni66.github.io/posts/1000154.html">python基础–类</a></p>
+</li>
+<li>
+<p>🐶<a href="https://agoni66.github.io/posts/1000155.html">python基础–文件与异常</a></p>
+</li>
+<li>
+<p>🐱<a href="https://agoni66.github.io/posts/1000156.html">python基础–外星人入侵小游戏</a></p>
+</li>
+<li>
+<p>🦄<a href="https://agoni66.github.io/posts/1000157.html">python基础–数据可视化之生成数据</a></p>
+</li>
+<li>
+<p>🐲<a href="https://agoni66.github.io/posts/1000158.html">python基础–数据可视化之下载数据</a></p>
+</li>
+<li>
+<p>🐴<a href="https://agoni66.github.io/posts/1000159.html">python基础–数据可视化之使用API</a> ⇦ 当前位置🚀</p>
+</li>
+</ol>
+</div>
+<h3 id="使用Web-API">使用Web API</h3>
+<h4 id="处理API响应">处理API响应</h4>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"></span><br><span class="line"><span class="comment"># 执行API调用并存储响应</span></span><br><span class="line">url = <span class="string">&#x27;https://api.github.com/search/repositories?q=language:python&amp;sort=stars&#x27;</span></span><br><span class="line">r = requests.get(url)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Status code:&quot;</span>, r.status_code)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 将API响应存储在一个变量中</span></span><br><span class="line">response_dict = r.json()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 处理结果</span></span><br><span class="line"><span class="built_in">print</span>(response_dict.keys())</span><br></pre></td></tr></table></figure>
+<pre><code>Status code: 200
+dict_keys(['total_count', 'incomplete_results', 'items'])
+</code></pre>
+<ul>
+<li><code>requests.get(url)</code> 发送一个 HTTP GET 请求到指定的 URL</li>
+<li><code>r.status_code</code>：返回 HTTP 响应的状态码（例如，200 表示成功）。</li>
+<li><code>r.text</code>：返回服务器响应的内容，通常是字符串格式。</li>
+<li><code>r.json()</code>：如果响应是 JSON 格式，这个方法会将其解析为 Python 字典。</li>
+<li><code>r.headers</code>：返回一个字典，包含 HTTP 响应头。</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(r.json() == r.text)</span><br></pre></td></tr></table></figure>
+<pre><code>False
+</code></pre>
+<h4 id="处理响应字典">处理响应字典</h4>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 指出了GitHub总共包含多少个Python仓库</span></span><br><span class="line">response_dict = r.json()</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Total repositories:&quot;</span>, response_dict[<span class="string">&#x27;total_count&#x27;</span>]) </span><br></pre></td></tr></table></figure>
+<pre><code>Total repositories: 19262141
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 探索有关仓库的信息，打印出返回的仓库数量</span></span><br><span class="line">repo_dicts = response_dict[<span class="string">&#x27;items&#x27;</span>] </span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Repositories returned:&quot;</span>, <span class="built_in">len</span>(repo_dicts))</span><br></pre></td></tr></table></figure>
+<pre><code>Repositories returned: 30
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 研究第一个仓库，展示第一个仓库的所有信息字段名称</span></span><br><span class="line">repo_dict = repo_dicts[<span class="number">0</span>]</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Keys:&quot;</span>, <span class="built_in">len</span>(repo_dict))</span><br><span class="line"><span class="keyword">for</span> key <span class="keyword">in</span> <span class="built_in">sorted</span>(repo_dict.keys()):</span><br><span class="line">    <span class="built_in">print</span>(key)</span><br></pre></td></tr></table></figure>
+<pre><code>Keys: 80
+allow_forking
+archive_url
+archived
+assignees_url
+blobs_url
+branches_url
+clone_url
+collaborators_url
+comments_url
+commits_url
+compare_url
+contents_url
+contributors_url
+created_at
+default_branch
+deployments_url
+description
+disabled
+downloads_url
+events_url
+fork
+forks
+forks_count
+forks_url
+full_name
+git_commits_url
+git_refs_url
+git_tags_url
+git_url
+has_discussions
+has_downloads
+has_issues
+has_pages
+has_projects
+has_wiki
+homepage
+hooks_url
+html_url
+id
+is_template
+issue_comment_url
+issue_events_url
+issues_url
+keys_url
+labels_url
+language
+languages_url
+license
+merges_url
+milestones_url
+mirror_url
+name
+node_id
+notifications_url
+open_issues
+open_issues_count
+owner
+private
+pulls_url
+pushed_at
+releases_url
+score
+size
+ssh_url
+stargazers_count
+stargazers_url
+statuses_url
+subscribers_url
+subscription_url
+svn_url
+tags_url
+teams_url
+topics
+trees_url
+updated_at
+url
+visibility
+watchers
+watchers_count
+web_commit_signoff_required
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Selected information about first repository:&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;Name:&#x27;</span>, repo_dict[<span class="string">&#x27;name&#x27;</span>]) <span class="comment"># 项目名称</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;Owner:&#x27;</span>, repo_dict[<span class="string">&#x27;owner&#x27;</span>][<span class="string">&#x27;login&#x27;</span>]) <span class="comment"># 所有者的登录名</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;Stars:&#x27;</span>, repo_dict[<span class="string">&#x27;stargazers_count&#x27;</span>]) <span class="comment"># 星数</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;Repository:&#x27;</span>, repo_dict[<span class="string">&#x27;html_url&#x27;</span>]) <span class="comment"># url</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;Created:&#x27;</span>, repo_dict[<span class="string">&#x27;created_at&#x27;</span>]) <span class="comment"># 创建时间</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;Updated:&#x27;</span>, repo_dict[<span class="string">&#x27;updated_at&#x27;</span>]) <span class="comment"># 更新时间</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;Description:&#x27;</span>, repo_dict[<span class="string">&#x27;description&#x27;</span>]) <span class="comment"># 描述</span></span><br></pre></td></tr></table></figure>
+<pre><code>Selected information about first repository:
+Name: public-apis
+Owner: public-apis
+Stars: 335516
+Repository: https://github.com/public-apis/public-apis
+Created: 2016-03-20T23:49:42Z
+Updated: 2025-04-13T10:16:49Z
+Description: A collective list of free APIs
+</code></pre>
+<h4 id="概述最受欢迎的仓库们">概述最受欢迎的仓库们</h4>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">&quot;\nSelected information about each repository:&quot;</span>)</span><br><span class="line"><span class="keyword">for</span> repo_dict <span class="keyword">in</span> repo_dicts:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;Name:&#x27;</span>, repo_dict[<span class="string">&#x27;name&#x27;</span>]) <span class="comment"># 项目名称</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;Owner:&#x27;</span>, repo_dict[<span class="string">&#x27;owner&#x27;</span>][<span class="string">&#x27;login&#x27;</span>]) <span class="comment"># 所有者的登录名</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;Stars:&#x27;</span>, repo_dict[<span class="string">&#x27;stargazers_count&#x27;</span>]) <span class="comment"># 星数</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;Repository:&#x27;</span>, repo_dict[<span class="string">&#x27;html_url&#x27;</span>]) <span class="comment"># url</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;Created:&#x27;</span>, repo_dict[<span class="string">&#x27;created_at&#x27;</span>]) <span class="comment"># 创建时间</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;Updated:&#x27;</span>, repo_dict[<span class="string">&#x27;updated_at&#x27;</span>]) <span class="comment"># 更新时间</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;Description:&#x27;</span>, repo_dict[<span class="string">&#x27;description&#x27;</span>]) <span class="comment"># 描述</span></span><br><span class="line">    <span class="built_in">print</span>()</span><br></pre></td></tr></table></figure>
+<pre><code>Selected information about each repository:
+Name: public-apis
+Owner: public-apis
+Stars: 335516
+Repository: https://github.com/public-apis/public-apis
+Created: 2016-03-20T23:49:42Z
+Updated: 2025-04-13T10:16:49Z
+Description: A collective list of free APIs
+
+Name: awesome-python
+Owner: vinta
+Stars: 240274
+Repository: https://github.com/vinta/awesome-python
+Created: 2014-06-27T21:00:06Z
+Updated: 2025-04-13T10:19:56Z
+Description: An opinionated list of awesome Python frameworks, libraries, software and resources.
+
+Name: Python
+Owner: TheAlgorithms
+Stars: 199370
+Repository: https://github.com/TheAlgorithms/Python
+Created: 2016-07-16T09:44:01Z
+Updated: 2025-04-13T10:20:03Z
+Description: All Algorithms implemented in Python
+
+Name: AutoGPT
+Owner: Significant-Gravitas
+Stars: 174376
+Repository: https://github.com/Significant-Gravitas/AutoGPT
+Created: 2023-03-16T09:21:07Z
+Updated: 2025-04-13T09:27:07Z
+Description: AutoGPT is the vision of accessible AI for everyone, to use and to build on. Our mission is to provide the tools, so that you can focus on what matters.
+
+Name: transformers
+Owner: huggingface
+Stars: 142871
+Repository: https://github.com/huggingface/transformers
+Created: 2018-10-29T13:56:00Z
+Updated: 2025-04-13T09:40:14Z
+Description: 🤗 Transformers: State-of-the-art Machine Learning for Pytorch, TensorFlow, and JAX.
+
+Name: youtube-dl
+Owner: ytdl-org
+Stars: 135087
+Repository: https://github.com/ytdl-org/youtube-dl
+Created: 2010-10-31T14:35:07Z
+Updated: 2025-04-13T10:09:48Z
+Description: Command-line program to download videos from YouTube.com and other video sites
+
+Name: HelloGitHub
+Owner: 521xueweihan
+Stars: 101251
+Repository: https://github.com/521xueweihan/HelloGitHub
+Created: 2016-05-04T06:24:11Z
+Updated: 2025-04-13T10:04:40Z
+Description: :octocat: 分享 GitHub 上有趣、入门级的开源项目。Share interesting, entry-level open source projects on GitHub.
+
+Name: DeepSeek-V3
+Owner: deepseek-ai
+Stars: 95492
+Repository: https://github.com/deepseek-ai/DeepSeek-V3
+Created: 2024-12-26T09:52:40Z
+Updated: 2025-04-13T10:26:07Z
+Description: None
+
+Name: pytorch
+Owner: pytorch
+Stars: 88921
+Repository: https://github.com/pytorch/pytorch
+Created: 2016-08-13T05:26:41Z
+Updated: 2025-04-13T10:20:37Z
+Description: Tensors and Dynamic neural networks in Python with strong GPU acceleration
+
+Name: fastapi
+Owner: fastapi
+Stars: 83214
+Repository: https://github.com/fastapi/fastapi
+Created: 2018-12-08T08:21:47Z
+Updated: 2025-04-13T10:20:42Z
+Description: FastAPI framework, high performance, easy to learn, fast to code, ready for production
+
+Name: django
+Owner: django
+Stars: 83135
+Repository: https://github.com/django/django
+Created: 2012-04-28T02:47:18Z
+Updated: 2025-04-13T10:20:45Z
+Description: The Web framework for perfectionists with deadlines.
+
+Name: core
+Owner: home-assistant
+Stars: 78049
+Repository: https://github.com/home-assistant/core
+Created: 2013-09-17T07:29:48Z
+Updated: 2025-04-13T09:18:38Z
+Description: :house_with_garden: Open source home automation that puts local control and privacy first.
+
+Name: models
+Owner: tensorflow
+Stars: 77484
+Repository: https://github.com/tensorflow/models
+Created: 2016-02-05T01:15:20Z
+Updated: 2025-04-12T14:25:10Z
+Description: Models and examples built with TensorFlow
+
+Name: manim
+Owner: 3b1b
+Stars: 76734
+Repository: https://github.com/3b1b/manim
+Created: 2015-03-22T18:50:58Z
+Updated: 2025-04-13T10:22:00Z
+Description: Animation engine for explanatory math videos
+
+Name: ComfyUI
+Owner: comfyanonymous
+Stars: 74079
+Repository: https://github.com/comfyanonymous/ComfyUI
+Created: 2023-01-17T03:15:56Z
+Updated: 2025-04-13T10:31:39Z
+Description: The most powerful and modular diffusion model GUI, api and backend with a graph/nodes interface.
+
+Name: devops-exercises
+Owner: bregman-arie
+Stars: 73430
+Repository: https://github.com/bregman-arie/devops-exercises
+Created: 2019-10-03T17:31:21Z
+Updated: 2025-04-13T10:27:40Z
+Description: Linux, Jenkins, AWS, SRE, Prometheus, Docker, Python, Ansible, Git, Kubernetes, Terraform, OpenStack, SQL, NoSQL, Azure, GCP, DNS, Elastic, Network, Virtualization. DevOps Interview Questions
+
+Name: funNLP
+Owner: fighting41love
+Stars: 72385
+Repository: https://github.com/fighting41love/funNLP
+Created: 2018-08-21T11:20:39Z
+Updated: 2025-04-13T10:23:35Z
+Description: 中英文敏感词、语言检测、中外手机/电话归属地/运营商查询、名字推断性别、手机号抽取、身份证抽取、邮箱抽取、中日文人名库、中文缩写库、拆字词典、词汇情感值、停用词、反动词表、暴恐词表、繁简体转换、英文模拟中文发音、汪峰歌词生成器、职业名称词库、同义词库、反义词库、否定词库、汽车品牌词库、汽车零件词库、连续英文切割、各种中文词向量、公司名字大全、古诗词库、IT词库、财经词库、成语词库、地名词库、历史名人词库、诗词词库、医学词库、饮食词库、法律词库、汽车词库、动物词库、中文聊天语料、中文谣言数据、百度中文问答数据集、句子相似度匹配算法集合、bert资源、文本生成&amp;摘要相关工具、cocoNLP信息抽取工具、国内电话号码正则匹配、清华大学XLORE:中英文跨语言百科知识图谱、清华大学人工智能技术系列报告、自然语言生成、NLU太难了系列、自动对联数据及机器人、用户名黑名单列表、罪名法务名词及分类模型、微信公众号语料、cs224n深度学习自然语言处理课程、中文手写汉字识别、中文自然语言处理 语料/数据集、变量命名神器、分词语料库+代码、任务型对话英文数据集、ASR 语音数据集 + 基于深度学习的中文语音识别系统、笑声检测器、Microsoft多语言数字/单位/如日期时间识别包、中华新华字典数据库及api(包括常用歇后语、成语、词语和汉字)、文档图谱自动生成、SpaCy 中文模型、Common Voice语音识别数据集新版、神经网络关系抽取、基于bert的命名实体识别、关键词(Keyphrase)抽取包pke、基于医疗领域知识图谱的问答系统、基于依存句法与语义角色标注的事件三元组抽取、依存句法分析4万句高质量标注数据、cnocr：用来做中文OCR的Python3包、中文人物关系知识图谱项目、中文nlp竞赛项目及代码汇总、中文字符数据、speech-aligner: 从“人声语音”及其“语言文本”产生音素级别时间对齐标注的工具、AmpliGraph: 知识图谱表示学习(Python)库：知识图谱概念链接预测、Scattertext 文本可视化(python)、语言/知识表示工具：BERT &amp; ERNIE、中文对比英文自然语言处理NLP的区别综述、Synonyms中文近义词工具包、HarvestText领域自适应文本挖掘工具（新词发现-情感分析-实体链接等）、word2word：(Python)方便易用的多语言词-词对集：62种语言/3,564个多语言对、语音识别语料生成工具：从具有音频/字幕的在线视频创建自动语音识别(ASR)语料库、构建医疗实体识别的模型（包含词典和语料标注）、单文档非监督的关键词抽取、Kashgari中使用gpt-2语言模型、开源的金融投资数据提取工具、文本自动摘要库TextTeaser: 仅支持英文、人民日报语料处理工具集、一些关于自然语言的基本模型、基于14W歌曲知识库的问答尝试--功能包括歌词接龙and已知歌词找歌曲以及歌曲歌手歌词三角关系的问答、基于Siamese bilstm模型的相似句子判定模型并提供训练数据集和测试数据集、用Transformer编解码模型实现的根据Hacker News文章标题自动生成评论、用BERT进行序列标记和文本分类的模板代码、LitBank：NLP数据集——支持自然语言处理和计算人文学科任务的100部带标记英文小说语料、百度开源的基准信息抽取系统、虚假新闻数据集、Facebook: LAMA语言模型分析，提供Transformer-XL/BERT/ELMo/GPT预训练语言模型的统一访问接口、CommonsenseQA：面向常识的英文QA挑战、中文知识图谱资料、数据及工具、各大公司内部里大牛分享的技术文档 PDF 或者 PPT、自然语言生成SQL语句（英文）、中文NLP数据增强（EDA）工具、英文NLP数据增强工具 、基于医药知识图谱的智能问答系统、京东商品知识图谱、基于mongodb存储的军事领域知识图谱问答项目、基于远监督的中文关系抽取、语音情感分析、中文ULMFiT-情感分析-文本分类-语料及模型、一个拍照做题程序、世界各国大规模人名库、一个利用有趣中文语料库 qingyun 训练出来的中文聊天机器人、中文聊天机器人seqGAN、省市区镇行政区划数据带拼音标注、教育行业新闻语料库包含自动文摘功能、开放了对话机器人-知识图谱-语义理解-自然语言处理工具及数据、中文知识图谱：基于百度百科中文页面-抽取三元组信息-构建中文知识图谱、masr: 中文语音识别-提供预训练模型-高识别率、Python音频数据增广库、中文全词覆盖BERT及两份阅读理解数据、ConvLab：开源多域端到端对话系统平台、中文自然语言处理数据集、基于最新版本rasa搭建的对话系统、基于TensorFlow和BERT的管道式实体及关系抽取、一个小型的证券知识图谱/知识库、复盘所有NLP比赛的TOP方案、OpenCLaP：多领域开源中文预训练语言模型仓库、UER：基于不同语料+编码器+目标任务的中文预训练模型仓库、中文自然语言处理向量合集、基于金融-司法领域(兼有闲聊性质)的聊天机器人、g2pC：基于上下文的汉语读音自动标记模块、Zincbase 知识图谱构建工具包、诗歌质量评价/细粒度情感诗歌语料库、快速转化「中文数字」和「阿拉伯数字」、百度知道问答语料库、基于知识图谱的问答系统、jieba_fast 加速版的jieba、正则表达式教程、中文阅读理解数据集、基于BERT等最新语言模型的抽取式摘要提取、Python利用深度学习进行文本摘要的综合指南、知识图谱深度学习相关资料整理、维基大规模平行文本语料、StanfordNLP 0.2.0：纯Python版自然语言处理包、NeuralNLP-NeuralClassifier：腾讯开源深度学习文本分类工具、端到端的封闭域对话系统、中文命名实体识别：NeuroNER vs. BertNER、新闻事件线索抽取、2019年百度的三元组抽取比赛：“科学空间队”源码、基于依存句法的开放域文本知识三元组抽取和知识库构建、中文的GPT2训练代码、ML-NLP - 机器学习(Machine Learning)NLP面试中常考到的知识点和代码实现、nlp4han:中文自然语言处理工具集(断句/分词/词性标注/组块/句法分析/语义分析/NER/N元语法/HMM/代词消解/情感分析/拼写检查、XLM：Facebook的跨语言预训练语言模型、用基于BERT的微调和特征提取方法来进行知识图谱百度百科人物词条属性抽取、中文自然语言处理相关的开放任务-数据集-当前最佳结果、CoupletAI - 基于CNN+Bi-LSTM+Attention 的自动对对联系统、抽象知识图谱、MiningZhiDaoQACorpus - 580万百度知道问答数据挖掘项目、brat rapid annotation tool: 序列标注工具、大规模中文知识图谱数据：1.4亿实体、数据增强在机器翻译及其他nlp任务中的应用及效果、allennlp阅读理解:支持多种数据和模型、PDF表格数据提取工具 、 Graphbrain：AI开源软件库和科研工具，目的是促进自动意义提取和文本理解以及知识的探索和推断、简历自动筛选系统、基于命名实体识别的简历自动摘要、中文语言理解测评基准，包括代表性的数据集&amp;基准模型&amp;语料库&amp;排行榜、树洞 OCR 文字识别 、从包含表格的扫描图片中识别表格和文字、语声迁移、Python口语自然语言处理工具集(英文)、 similarity：相似度计算工具包，java编写、海量中文预训练ALBERT模型 、Transformers 2.0 、基于大规模音频数据集Audioset的音频增强 、Poplar：网页版自然语言标注工具、图片文字去除，可用于漫画翻译 、186种语言的数字叫法库、Amazon发布基于知识的人-人开放领域对话数据集 、中文文本纠错模块代码、繁简体转换 、 Python实现的多种文本可读性评价指标、类似于人名/地名/组织机构名的命名体识别数据集 、东南大学《知识图谱》研究生课程(资料)、. 英文拼写检查库 、 wwsearch是企业微信后台自研的全文检索引擎、CHAMELEON：深度学习新闻推荐系统元架构 、 8篇论文梳理BERT相关模型进展与反思、DocSearch：免费文档搜索引擎、 LIDA：轻量交互式对话标注工具 、aili - the fastest in-memory index in the East 东半球最快并发索引 、知识图谱车音工作项目、自然语言生成资源大全 、中日韩分词库mecab的Python接口库、中文文本摘要/关键词提取、汉字字符特征提取器 (featurizer)，提取汉字的特征（发音特征、字形特征）用做深度学习的特征、中文生成任务基准测评 、中文缩写数据集、中文任务基准测评 - 代表性的数据集-基准(预训练)模型-语料库-baseline-工具包-排行榜、PySS3：面向可解释AI的SS3文本分类器机器可视化工具 、中文NLP数据集列表、COPE - 格律诗编辑程序、doccano：基于网页的开源协同多语言文本标注工具 、PreNLP：自然语言预处理库、简单的简历解析器，用来从简历中提取关键信息、用于中文闲聊的GPT2模型：GPT2-chitchat、基于检索聊天机器人多轮响应选择相关资源列表(Leaderboards、Datasets、Papers)、(Colab)抽象文本摘要实现集锦(教程 、词语拼音数据、高效模糊搜索工具、NLP数据增广资源集、微软对话机器人框架 、 GitHub Typo Corpus：大规模GitHub多语言拼写错误/语法错误数据集、TextCluster：短文本聚类预处理模块 Short text cluster、面向语音识别的中文文本规范化、BLINK：最先进的实体链接库、BertPunc：基于BERT的最先进标点修复模型、Tokenizer：快速、可定制的文本词条化库、中文语言理解测评基准，包括代表性的数据集、基准(预训练)模型、语料库、排行榜、spaCy 医学文本挖掘与信息提取 、 NLP任务示例项目代码集、 python拼写检查库、chatbot-list - 行业内关于智能客服、聊天机器人的应用和架构、算法分享和介绍、语音质量评价指标(MOSNet, BSSEval, STOI, PESQ, SRMR)、 用138GB语料训练的法文RoBERTa预训练语言模型 、BERT-NER-Pytorch：三种不同模式的BERT中文NER实验、无道词典 - 有道词典的命令行版本，支持英汉互查和在线查询、2019年NLP亮点回顾、 Chinese medical dialogue data 中文医疗对话数据集 、最好的汉字数字(中文数字)-阿拉伯数字转换工具、 基于百科知识库的中文词语多词义/义项获取与特定句子词语语义消歧、awesome-nlp-sentiment-analysis - 情感分析、情绪原因识别、评价对象和评价词抽取、LineFlow：面向所有深度学习框架的NLP数据高效加载器、中文医学NLP公开资源整理 、MedQuAD：(英文)医学问答数据集、将自然语言数字串解析转换为整数和浮点数、Transfer Learning in Natural Language Processing (NLP) 、面向语音识别的中文/英文发音辞典、Tokenizers：注重性能与多功能性的最先进分词器、CLUENER 细粒度命名实体识别 Fine Grained Named Entity Recognition、 基于BERT的中文命名实体识别、中文谣言数据库、NLP数据集/基准任务大列表、nlp相关的一些论文及代码, 包括主题模型、词向量(Word Embedding)、命名实体识别(NER)、文本分类(Text Classificatin)、文本生成(Text Generation)、文本相似性(Text Similarity)计算等，涉及到各种与nlp相关的算法，基于keras和tensorflow 、Python文本挖掘/NLP实战示例、 Blackstone：面向非结构化法律文本的spaCy pipeline和NLP模型通过同义词替换实现文本“变脸” 、中文 预训练 ELECTREA 模型: 基于对抗学习 pretrain Chinese Model 、albert-chinese-ner - 用预训练语言模型ALBERT做中文NER 、基于GPT2的特定主题文本生成/文本增广、开源预训练语言模型合集、多语言句向量包、编码、标记和实现：一种可控高效的文本生成方法、 英文脏话大列表 、attnvis：GPT2、BERT等transformer语言模型注意力交互可视化、CoVoST：Facebook发布的多语种语音-文本翻译语料库，包括11种语言(法语、德语、荷兰语、俄语、西班牙语、意大利语、土耳其语、波斯语、瑞典语、蒙古语和中文)的语音、文字转录及英文译文、Jiagu自然语言处理工具 - 以BiLSTM等模型为基础，提供知识图谱关系抽取 中文分词 词性标注 命名实体识别 情感分析 新词发现 关键词 文本摘要 文本聚类等功能、用unet实现对文档表格的自动检测，表格重建、NLP事件提取文献资源列表 、 金融领域自然语言处理研究资源大列表、CLUEDatasetSearch - 中英文NLP数据集：搜索所有中文NLP数据集，附常用英文NLP数据集 、medical_NER - 中文医学知识图谱命名实体识别 、(哈佛)讲因果推理的免费书、知识图谱相关学习资料/数据集/工具资源大列表、Forte：灵活强大的自然语言处理pipeline工具集 、Python字符串相似性算法库、PyLaia：面向手写文档分析的深度学习工具包、TextFooler：针对文本分类/推理的对抗文本生成模块、Haystack：灵活、强大的可扩展问答(QA)框架、中文关键短语抽取工具
+
+Name: flask
+Owner: pallets
+Stars: 69293
+Repository: https://github.com/pallets/flask
+Created: 2010-04-06T11:11:59Z
+Updated: 2025-04-13T10:21:08Z
+Description: The Python micro framework for building web applications.
+
+Name: gpt_academic
+Owner: binary-husky
+Stars: 68170
+Repository: https://github.com/binary-husky/gpt_academic
+Created: 2023-03-20T09:05:13Z
+Updated: 2025-04-13T09:46:41Z
+Description: 为GPT/GLM等LLM大语言模型提供实用化交互接口，特别优化论文阅读/润色/写作体验，模块化设计，支持自定义快捷按钮&amp;函数插件，支持Python和C++等项目剖析&amp;自译解功能，PDF/LaTex论文翻译&amp;总结功能，支持并行问询多种LLM模型，支持chatglm3等本地模型。接入通义千问, deepseekcoder, 讯飞星火, 文心一言, llama2, rwkv, claude2, moss等。
+
+Name: awesome-machine-learning
+Owner: josephmisiti
+Stars: 67560
+Repository: https://github.com/josephmisiti/awesome-machine-learning
+Created: 2014-07-15T19:11:19Z
+Updated: 2025-04-13T04:09:15Z
+Description: A curated list of awesome Machine Learning frameworks, libraries and software.
+
+Name: cpython
+Owner: python
+Stars: 66283
+Repository: https://github.com/python/cpython
+Created: 2017-02-10T19:23:51Z
+Updated: 2025-04-13T10:28:03Z
+Description: The Python programming language
+
+Name: ansible
+Owner: ansible
+Stars: 64715
+Repository: https://github.com/ansible/ansible
+Created: 2012-03-06T14:58:02Z
+Updated: 2025-04-13T10:21:29Z
+Description: Ansible is a radically simple IT automation platform that makes your applications and systems easier to deploy and maintain. Automate everything from code deployment to network configuration to cloud management, in a language that approaches plain English, using SSH, with no agents to install on remote systems. https://docs.ansible.com.
+
+Name: PayloadsAllTheThings
+Owner: swisskyrepo
+Stars: 64598
+Repository: https://github.com/swisskyrepo/PayloadsAllTheThings
+Created: 2016-10-18T07:29:07Z
+Updated: 2025-04-13T10:31:41Z
+Description: A list of useful payloads and bypass for Web Application Security and Pentest/CTF
+
+Name: gpt4free
+Owner: xtekky
+Stars: 64023
+Repository: https://github.com/xtekky/gpt4free
+Created: 2023-03-29T17:00:43Z
+Updated: 2025-04-13T09:34:45Z
+Description: The official gpt4free repository | various collection of powerful language models | o3 and deepseek r1, gpt-4.5
+
+Name: sherlock
+Owner: sherlock-project
+Stars: 63602
+Repository: https://github.com/sherlock-project/sherlock
+Created: 2018-12-24T14:30:48Z
+Updated: 2025-04-13T07:45:55Z
+Description: Hunt down social media accounts by username across social networks
+
+Name: annotated_deep_learning_paper_implementations
+Owner: labmlai
+Stars: 59923
+Repository: https://github.com/labmlai/annotated_deep_learning_paper_implementations
+Created: 2020-08-25T02:29:34Z
+Updated: 2025-04-13T09:19:32Z
+Description: 🧑‍🏫 60+ Implementations/tutorials of deep learning papers with side-by-side notes 📝; including transformers (original, xl, switch, feedback, vit, ...), optimizers (adam, adabelief, sophia, ...), gans(cyclegan, stylegan2, ...), 🎮 reinforcement learning (ppo, dqn), capsnet, distillation, ... 🧠
+
+Name: open-interpreter
+Owner: OpenInterpreter
+Stars: 59082
+Repository: https://github.com/OpenInterpreter/open-interpreter
+Created: 2023-07-14T07:10:44Z
+Updated: 2025-04-13T09:21:02Z
+Description: A natural language interface for computers
+
+Name: localstack
+Owner: localstack
+Stars: 58585
+Repository: https://github.com/localstack/localstack
+Created: 2016-10-25T23:48:03Z
+Updated: 2025-04-13T09:16:47Z
+Description: 💻 A fully functional local AWS cloud stack. Develop and test your cloud &amp; Serverless apps offline
+
+Name: llama
+Owner: meta-llama
+Stars: 58084
+Repository: https://github.com/meta-llama/llama
+Created: 2023-02-14T09:29:12Z
+Updated: 2025-04-13T09:56:46Z
+Description: Inference code for Llama models
+
+Name: private-gpt
+Owner: zylon-ai
+Stars: 55613
+Repository: https://github.com/zylon-ai/private-gpt
+Created: 2023-05-02T09:15:31Z
+Updated: 2025-04-13T10:11:15Z
+Description: Interact with your documents using the power of GPT, 100% privately, no data leaks
+</code></pre>
+<h3 id="使用Pygal可视化仓库">使用Pygal可视化仓库</h3>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> pygal</span><br><span class="line"><span class="keyword">from</span> pygal.style <span class="keyword">import</span> LightColorizedStyle <span class="keyword">as</span> LCS, LightenStyle <span class="keyword">as</span> LS</span><br><span class="line"><span class="keyword">from</span> IPython.display <span class="keyword">import</span> SVG</span><br><span class="line"></span><br><span class="line"><span class="comment"># 执行API调用并存储响应</span></span><br><span class="line">URL = <span class="string">&#x27;https://api.github.com/search/repositories?q=language:python&amp;sort=stars&#x27;</span></span><br><span class="line">r = requests.get(URL)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Status code:&quot;</span>, r.status_code)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 将API响应存储在一个变量中</span></span><br><span class="line">response_dict = r.json()</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Total repositories:&quot;</span>, response_dict[<span class="string">&#x27;total_count&#x27;</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 研究有关仓库的信息</span></span><br><span class="line">repo_dicts = response_dict[<span class="string">&#x27;items&#x27;</span>]</span><br><span class="line"></span><br><span class="line">names, stars = [], []</span><br><span class="line"><span class="keyword">for</span> repo_dict <span class="keyword">in</span> repo_dicts:</span><br><span class="line">    names.append(repo_dict[<span class="string">&#x27;name&#x27;</span>])</span><br><span class="line">    stars.append(repo_dict[<span class="string">&#x27;stargazers_count&#x27;</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 可视化</span></span><br><span class="line">my_style = LS(<span class="string">&#x27;#333366&#x27;</span>, base_style=LCS)</span><br><span class="line">chart = pygal.Bar(style=my_style, x_label_rotation=<span class="number">45</span>, show_legend=<span class="literal">False</span>)</span><br><span class="line">chart.title = <span class="string">&#x27;Most-Starred Python Projects on GitHub&#x27;</span></span><br><span class="line">chart.x_labels = names</span><br><span class="line"></span><br><span class="line">chart.add(<span class="string">&#x27;&#x27;</span>, stars)</span><br><span class="line">chart.render_to_file(<span class="string">&#x27;python_repos.svg&#x27;</span>)</span><br><span class="line">SVG(<span class="string">&#x27;python_repos.svg&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>Status code: 200
+Total repositories: 18404773
+</code></pre>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="output_13_1.svg" alt="svg"></p>
+<h4 id="改进Pygal图表">改进Pygal图表</h4>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">my_config = pygal.Config()</span><br><span class="line">my_config.x_label_rotation = <span class="number">45</span></span><br><span class="line">my_config.show_legend = <span class="literal">False</span></span><br><span class="line">my_config.title_font_size = <span class="number">24</span></span><br><span class="line">my_config.label_font_size = <span class="number">14</span></span><br><span class="line">my_config.major_label_font_size = <span class="number">18</span></span><br><span class="line">my_config.truncate_label = <span class="number">15</span></span><br><span class="line">my_config.show_y_guides = <span class="literal">False</span></span><br><span class="line">my_config.width = <span class="number">1000</span></span><br><span class="line"></span><br><span class="line">chart = pygal.Bar(my_config, style=my_style)</span><br><span class="line">chart.title = <span class="string">&#x27;Most-Starred Python Projects on GitHub&#x27;</span></span><br><span class="line">chart.x_labels = names</span><br><span class="line"></span><br><span class="line">chart.add(<span class="string">&#x27;&#x27;</span>, stars)</span><br><span class="line">chart.render_to_file(<span class="string">&#x27;python_repos.svg&#x27;</span>)</span><br><span class="line">SVG(<span class="string">&#x27;python_repos.svg&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="output_15_0.svg" alt="svg"></p>
+<ul>
+<li><code>pygal.Config()</code> 创建了一个Pygal类Config的实例
+<ul>
+<li><code>x_label_rotation = 45</code> 将 x 轴标签旋转 45 度</li>
+<li><code>show_legend = False</code> 不显示图例</li>
+<li>title_font_size 图标便签字体大小</li>
+<li>label_font_size 标签的字体大小</li>
+<li>major_label_font_size 主标签的字体大小</li>
+<li><code>truncate_label = 15</code> 如果标签太长，将其截断为 15 个字符</li>
+<li><code>show_y_guides = False</code> 不显示 y 轴的辅助线</li>
+<li>width 宽度</li>
+<li>height 高度</li>
+</ul>
+</li>
+</ul>
+<h4 id="添加自定义工具提示">添加自定义工具提示</h4>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pygal</span><br><span class="line"><span class="keyword">from</span> pygal.style <span class="keyword">import</span> LightColorizedStyle <span class="keyword">as</span> LCS, LightenStyle <span class="keyword">as</span> LS</span><br><span class="line"><span class="keyword">from</span> IPython.display <span class="keyword">import</span> SVG</span><br><span class="line"></span><br><span class="line">my_style = LS(<span class="string">&#x27;#333366&#x27;</span>, base_style=LCS)</span><br><span class="line">chart = pygal.Bar(style=my_style, x_label_rotation=<span class="number">45</span>, show_legend=<span class="literal">False</span>)</span><br><span class="line"></span><br><span class="line">chart.title = <span class="string">&#x27;Python Projects&#x27;</span></span><br><span class="line">chart.x_labels = [<span class="string">&#x27;httpie&#x27;</span>, <span class="string">&#x27;django&#x27;</span>, <span class="string">&#x27;flask&#x27;</span>]</span><br><span class="line"></span><br><span class="line">plot_dicts = [</span><br><span class="line">    &#123;<span class="string">&#x27;value&#x27;</span>: <span class="number">16101</span>, <span class="string">&#x27;label&#x27;</span>: <span class="string">&#x27;Description of httpie.&#x27;</span>&#125;,</span><br><span class="line">    &#123;<span class="string">&#x27;value&#x27;</span>: <span class="number">15028</span>, <span class="string">&#x27;label&#x27;</span>: <span class="string">&#x27;Description of django.&#x27;</span>&#125;,</span><br><span class="line">    &#123;<span class="string">&#x27;value&#x27;</span>: <span class="number">14798</span>, <span class="string">&#x27;label&#x27;</span>: <span class="string">&#x27;Description of flask.&#x27;</span>&#125;,</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line">chart.add(<span class="string">&#x27;&#x27;</span>, plot_dicts)</span><br><span class="line">chart.render_to_file(<span class="string">&#x27;bar_descriptions.svg&#x27;</span>)</span><br><span class="line">SVG(<span class="string">&#x27;bar_descriptions.svg&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="output_18_0.svg" alt="svg"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> pygal</span><br><span class="line"><span class="keyword">from</span> pygal.style <span class="keyword">import</span> LightColorizedStyle <span class="keyword">as</span> LCS, LightenStyle <span class="keyword">as</span> LS</span><br><span class="line"><span class="keyword">from</span> IPython.display <span class="keyword">import</span> SVG</span><br><span class="line"></span><br><span class="line">URL = <span class="string">&#x27;https://api.github.com/search/repositories?q=language:python&amp;sort=stars&#x27;</span></span><br><span class="line">r = requests.get(URL)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Status code:&quot;</span>, r.status_code)</span><br><span class="line"></span><br><span class="line">response_dict = r.json()</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Total repositories:&quot;</span>, response_dict[<span class="string">&#x27;total_count&#x27;</span>])</span><br><span class="line"></span><br><span class="line">repo_dicts = response_dict[<span class="string">&#x27;items&#x27;</span>]</span><br><span class="line"></span><br><span class="line">names, plot_dicts = [], []</span><br><span class="line"><span class="keyword">for</span> repo_dict <span class="keyword">in</span> repo_dicts:</span><br><span class="line">    names.append(repo_dict[<span class="string">&#x27;name&#x27;</span>])</span><br><span class="line"></span><br><span class="line">    plot_dict = &#123; </span><br><span class="line">        <span class="string">&#x27;value&#x27;</span>: repo_dict[<span class="string">&#x27;stargazers_count&#x27;</span>], </span><br><span class="line">        <span class="string">&#x27;label&#x27;</span>: repo_dict[<span class="string">&#x27;description&#x27;</span>], </span><br><span class="line">        &#125;</span><br><span class="line">    plot_dicts.append(plot_dict)</span><br><span class="line">    </span><br><span class="line">my_style = LS(<span class="string">&#x27;#333366&#x27;</span>, base_style=LCS)</span><br><span class="line">chart = pygal.Bar(style=my_style, x_label_rotation=<span class="number">45</span>, show_legend=<span class="literal">False</span>)</span><br><span class="line">chart.title = <span class="string">&#x27;Most-Starred Python Projects on GitHub&#x27;</span></span><br><span class="line">chart.x_labels = names</span><br><span class="line"></span><br><span class="line">chart.add(<span class="string">&#x27;&#x27;</span>, plot_dicts) </span><br><span class="line">chart.render_to_file(<span class="string">&#x27;python_repos.svg&#x27;</span>)</span><br><span class="line">SVG(<span class="string">&#x27;python_repos.svg&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>Status code: 200
+Total repositories: 18714822
+</code></pre>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="output_19_1.svg" alt="svg"></p>
+<h4 id="在图表中添加可单击的链接">在图表中添加可单击的链接</h4>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">names, plot_dicts = [], []</span><br><span class="line"><span class="keyword">for</span> repo_dict <span class="keyword">in</span> repo_dicts:</span><br><span class="line">    names.append(repo_dict[<span class="string">&#x27;name&#x27;</span>])</span><br><span class="line"></span><br><span class="line">    plot_dict = &#123; </span><br><span class="line">        <span class="string">&#x27;value&#x27;</span>: repo_dict[<span class="string">&#x27;stargazers_count&#x27;</span>], </span><br><span class="line">        <span class="string">&#x27;label&#x27;</span>: repo_dict[<span class="string">&#x27;description&#x27;</span>],</span><br><span class="line">        <span class="string">&#x27;xlink&#x27;</span>: repo_dict[<span class="string">&#x27;html_url&#x27;</span>], <span class="comment"># 添加链接</span></span><br><span class="line">        &#125;</span><br><span class="line">    plot_dicts.append(plot_dict)</span><br><span class="line"></span><br><span class="line">my_style = LS(<span class="string">&#x27;#333366&#x27;</span>, base_style=LCS)</span><br><span class="line">chart = pygal.Bar(style=my_style, x_label_rotation=<span class="number">45</span>, show_legend=<span class="literal">False</span>)</span><br><span class="line">chart.title = <span class="string">&#x27;Most-Starred Python Projects on GitHub&#x27;</span></span><br><span class="line">chart.x_labels = names</span><br><span class="line"></span><br><span class="line">chart.add(<span class="string">&#x27;&#x27;</span>, plot_dicts) </span><br><span class="line">chart.render_to_file(<span class="string">&#x27;python_repos.svg&#x27;</span>)</span><br><span class="line">SVG(<span class="string">&#x27;python_repos.svg&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="output_21_0.svg" alt="svg"></p>
+<h3 id="Hacker-News-API">Hacker News API</h3>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> operator <span class="keyword">import</span> itemgetter</span><br><span class="line"></span><br><span class="line"><span class="comment"># Make an API call, and store the response.</span></span><br><span class="line">url = <span class="string">&#x27;https://hacker-news.firebaseio.com/v0/topstories.json&#x27;</span></span><br><span class="line">r = requests.get(url)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Status code:&quot;</span>, r.status_code)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Process information about each submission.</span></span><br><span class="line">submission_ids = r.json()</span><br><span class="line">submission_dicts = []</span><br><span class="line"><span class="keyword">for</span> submission_id <span class="keyword">in</span> submission_ids[:<span class="number">30</span>]:</span><br><span class="line">    <span class="comment"># Make a separate API call for each submission.</span></span><br><span class="line">    url = (<span class="string">&#x27;https://hacker-news.firebaseio.com/v0/item/&#x27;</span> +</span><br><span class="line">            <span class="built_in">str</span>(submission_id) + <span class="string">&#x27;.json&#x27;</span>)</span><br><span class="line">    submission_r = requests.get(url)</span><br><span class="line">    <span class="built_in">print</span>(submission_r.status_code)</span><br><span class="line">    response_dict = submission_r.json()</span><br><span class="line">    </span><br><span class="line">    submission_dict = &#123;</span><br><span class="line">        <span class="string">&#x27;title&#x27;</span>: response_dict[<span class="string">&#x27;title&#x27;</span>],</span><br><span class="line">        <span class="string">&#x27;link&#x27;</span>: <span class="string">&#x27;http://news.ycombinator.com/item?id=&#x27;</span> + <span class="built_in">str</span>(submission_id),</span><br><span class="line">        <span class="string">&#x27;comments&#x27;</span>: response_dict.get(<span class="string">&#x27;descendants&#x27;</span>, <span class="number">0</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    submission_dicts.append(submission_dict)</span><br><span class="line">    </span><br><span class="line">submission_dicts = <span class="built_in">sorted</span>(submission_dicts, key=itemgetter(<span class="string">&#x27;comments&#x27;</span>),</span><br><span class="line">                            reverse=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> submission_dict <span class="keyword">in</span> submission_dicts:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;\nTitle:&quot;</span>, submission_dict[<span class="string">&#x27;title&#x27;</span>])</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;Discussion link:&quot;</span>, submission_dict[<span class="string">&#x27;link&#x27;</span>])</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;Comments:&quot;</span>, submission_dict[<span class="string">&#x27;comments&#x27;</span>])</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<pre><code>Status code: 200
+200
+200
+200
+200
+200
+200
+200
+200
+200
+200
+200
+200
+200
+200
+200
+200
+200
+200
+200
+200
+200
+200
+200
+200
+200
+200
+200
+200
+200
+200
+
+Title: Experimental release of GrapheneOS for Pixel 9a
+Discussion link: http://news.ycombinator.com/item?id=43669185
+Comments: 152
+
+Title: I ditched my laptop for a pocketable mini PC and a pair of AR glasses
+Discussion link: http://news.ycombinator.com/item?id=43668192
+Comments: 146
+
+Title: The Bitter Prediction
+Discussion link: http://news.ycombinator.com/item?id=43662686
+Comments: 108
+
+Title: YAML: The Norway Problem (2022)
+Discussion link: http://news.ycombinator.com/item?id=43668290
+Comments: 105
+
+Title: Open source and self hostable/private file converter
+Discussion link: http://news.ycombinator.com/item?id=43663865
+Comments: 102
+
+Title: BPS is a GPS alternative that nobody's heard of
+Discussion link: http://news.ycombinator.com/item?id=43669308
+Comments: 94
+
+Title: CERN releases report on the feasibility of a possible Future Circular Collider
+Discussion link: http://news.ycombinator.com/item?id=43632828
+Comments: 82
+
+Title: Nice things with SVG
+Discussion link: http://news.ycombinator.com/item?id=43666439
+Comments: 81
+
+Title: WebTUI – A CSS Library That Brings the Beauty of Terminal UIs to the Browser
+Discussion link: http://news.ycombinator.com/item?id=43668250
+Comments: 64
+
+Title: ArkType: Ergonomic TS validator 100x faster than Zod
+Discussion link: http://news.ycombinator.com/item?id=43665540
+Comments: 59
+
+Title: Tunarr: Create and configure live TV channels from media on your servers
+Discussion link: http://news.ycombinator.com/item?id=43665201
+Comments: 49
+
+Title: Emacs Lisp Elements
+Discussion link: http://news.ycombinator.com/item?id=43665046
+Comments: 39
+
+Title: Why is there a “small house” in IBM's Code page 437?
+Discussion link: http://news.ycombinator.com/item?id=43667010
+Comments: 39
+
+Title: Whenever – typed and DST-safe datetimes for Python
+Discussion link: http://news.ycombinator.com/item?id=43671308
+Comments: 38
+
+Title: Go channels are bad (2016)
+Discussion link: http://news.ycombinator.com/item?id=43670373
+Comments: 36
+
+Title: Show HN: memEx, a personal knowledge base inspired by zettlekasten and org-mode
+Discussion link: http://news.ycombinator.com/item?id=43667061
+Comments: 29
+
+Title: Philip K. Dick: Stanisław Lem Is a Communist Committee
+Discussion link: http://news.ycombinator.com/item?id=43660520
+Comments: 20
+
+Title: How to not build a two stage model rocket
+Discussion link: http://news.ycombinator.com/item?id=43669981
+Comments: 19
+
+Title: Show HN: Chonky – a neural approach for text semantic chunking
+Discussion link: http://news.ycombinator.com/item?id=43652968
+Comments: 16
+
+Title: How to repair the parts that explode in Lenovo Yoga laptops (2019)
+Discussion link: http://news.ycombinator.com/item?id=43669887
+Comments: 15
+
+Title: A Farewell to the ArcoLinux University
+Discussion link: http://news.ycombinator.com/item?id=43669990
+Comments: 11
+
+Title: Facebook is just Craigslist now
+Discussion link: http://news.ycombinator.com/item?id=43671994
+Comments: 7
+
+Title: Microgravity 101
+Discussion link: http://news.ycombinator.com/item?id=43648423
+Comments: 6
+
+Title: How I install personal versions of programs on Unix
+Discussion link: http://news.ycombinator.com/item?id=43662031
+Comments: 3
+
+Title: Nominal Aphasia: Problems in Name Retrieval
+Discussion link: http://news.ycombinator.com/item?id=43648536
+Comments: 3
+
+Title: Cross-Entropy and KL Divergence
+Discussion link: http://news.ycombinator.com/item?id=43670171
+Comments: 3
+
+Title: The Dark Side of the Moomins
+Discussion link: http://news.ycombinator.com/item?id=43672593
+Comments: 2
+
+Title: Dust in the wind: How cities alter natural airborne particles
+Discussion link: http://news.ycombinator.com/item?id=43631398
+Comments: 1
+
+Title: RNA interference and nanomedicine team up to fight dangerous fungal infections
+Discussion link: http://news.ycombinator.com/item?id=43645925
+Comments: 0
+
+Title: How to Structure a B2B Marketplace Venture
+Discussion link: http://news.ycombinator.com/item?id=43668876
+Comments: 0
+</code></pre>
+<p>在本章中，你学习了：如何使用API来编写独立的程序，它们自动采集所需的数据并对其进行可视化；使用GitHub API来探索GitHub上星级最高的Python项目，还大致地了解了Hacker News API；如何使用requests包来自动执行GitHub API调用，以及如何处理调用的结果。我们还简要地介绍了一些Pygal设置，使用它们可进一步定制生成的图表的外观。 在本书的最后一个项目中，我们将使用Django来创建一个Web应用程序。</p>
+</article><div class="post-copyright"><div class="post-copyright__title"><span class="post-copyright-info"><h>python基础--数据可视化之使用API</h></span></div><div class="post-copyright__type"><span class="post-copyright-info"><a href="https://agoni66.github.io/posts/1000159.html">https://agoni66.github.io/posts/1000159.html</a></span></div><div class="post-copyright-m"><div class="post-copyright-m-info"><div class="post-copyright-a"><h>作者</h><div class="post-copyright-cc-info"><h>小黄鸭的窝窝✨</h></div></div><div class="post-copyright-c"><h>发布于</h><div class="post-copyright-cc-info"><h>2025-02-20</h></div></div><div class="post-copyright-u"><h>更新于</h><div class="post-copyright-cc-info"><h>2025-04-13</h></div></div><div class="post-copyright-c"><h>许可协议</h><div class="post-copyright-cc-info"><a class="icon" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a><a rel="noopener" target="_blank" title="CC BY-NC-SA 4.0" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a></div></div></div></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%9F%BA%E7%A1%80/"><div class="tags-punctuation"><svg class="faa-tada icon" style="height:1.1em;width:1.1em;fill:currentColor;position:relative;top:2px;margin-right:3px" aria-hidden="true"><use xlink:href="#icon-sekuaibiaoqian"></use></svg></div>基础</a></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/posts/1000158.html"><img class="next-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://pic1.imgdb.cn/item/67fa0ebb88c538a9b5cbf88f.jpg" onerror="onerror=null;src='/assets/r2.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">python基础--数据可视化之下载数据</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/posts/1000153.html" title="python基础--函数"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://pic1.imgdb.cn/item/67f800f288c538a9b5c94e2f.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="fas fa-history fa-fw"></i> 2025-04-12</div><div class="title">python基础--函数</div></div></a></div><div><a href="/posts/1000151.html" title="python基础--if语句与字典"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://pic1.imgdb.cn/item/67f7fb3c88c538a9b5c945a5.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="fas fa-history fa-fw"></i> 2025-04-12</div><div class="title">python基础--if语句与字典</div></div></a></div><div><a href="/posts/1000150.html" title="python基础--变量与列表"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://pic1.imgdb.cn/item/677bf136d0e0a243d4f02889.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="fas fa-history fa-fw"></i> 2025-04-12</div><div class="title">python基础--变量与列表</div></div></a></div><div><a href="/posts/1000158.html" title="python基础--数据可视化之下载数据"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://pic1.imgdb.cn/item/67fa0ebb88c538a9b5cbf88f.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="fas fa-history fa-fw"></i> 2025-04-12</div><div class="title">python基础--数据可视化之下载数据</div></div></a></div><div><a href="/posts/1000156.html" title="python基础--外星人入侵小游戏"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://pic1.imgdb.cn/item/67f801b088c538a9b5c94f37.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="fas fa-history fa-fw"></i> 2025-04-12</div><div class="title">python基础--外星人入侵小游戏</div></div></a></div><div><a href="/posts/1000157.html" title="python基础--数据可视化之生成数据"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://pic1.imgdb.cn/item/67f80bb388c538a9b5c95f7c.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="fas fa-history fa-fw"></i> 2025-04-12</div><div class="title">python基础--数据可视化之生成数据</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><svg class="meta_icon" style="width:22px;height:22px;position:relative;top:5px"><use xlink:href="#icon-mulu1"></use></svg><span style="font-weight:bold">目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8Web-API"><span class="toc-text">使用Web API</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A4%84%E7%90%86API%E5%93%8D%E5%BA%94"><span class="toc-text">处理API响应</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A4%84%E7%90%86%E5%93%8D%E5%BA%94%E5%AD%97%E5%85%B8"><span class="toc-text">处理响应字典</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A6%82%E8%BF%B0%E6%9C%80%E5%8F%97%E6%AC%A2%E8%BF%8E%E7%9A%84%E4%BB%93%E5%BA%93%E4%BB%AC"><span class="toc-text">概述最受欢迎的仓库们</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8Pygal%E5%8F%AF%E8%A7%86%E5%8C%96%E4%BB%93%E5%BA%93"><span class="toc-text">使用Pygal可视化仓库</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%94%B9%E8%BF%9BPygal%E5%9B%BE%E8%A1%A8"><span class="toc-text">改进Pygal图表</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0%E8%87%AA%E5%AE%9A%E4%B9%89%E5%B7%A5%E5%85%B7%E6%8F%90%E7%A4%BA"><span class="toc-text">添加自定义工具提示</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9C%A8%E5%9B%BE%E8%A1%A8%E4%B8%AD%E6%B7%BB%E5%8A%A0%E5%8F%AF%E5%8D%95%E5%87%BB%E7%9A%84%E9%93%BE%E6%8E%A5"><span class="toc-text">在图表中添加可单击的链接</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Hacker-News-API"><span class="toc-text">Hacker News API</span></a></li></ol></div></div></div></div></main><footer id="footer" style="background-color: transparent;"><div id="footer-wrap"><div id="ft"><div class="ft-item-1"><div class="t-top"><div class="t-t-l"><p class="ft-t t-l-t">NMIXX and NSWER🐳</p><div class="bg-ad"><div>끝은 never know </div><div>Don't say I was wrong</div><div> 난 그냥 날 더 믿어줄래</div><div> Caught up with myself</div><div> 실수 가득한 stupid</div><div> 좋아 그게 뭐 어때</div><div>I'd be moving on</div><div class="btn-xz-box"><a class="btn-xz" target="_blank" rel="noopener" href="https://nmixx.jype.com/Default/Gallery" style="width: 250px;">点击进入爻托邦</a></div></div></div><div class="t-t-r"><p class="ft-t t-l-t">强烈推荐⭐</p><ul class="ft-links"><li><a href="/life/movies/">观影时刻</a><a href="/box/gallery/NMIXX/">追星墙</a></li><li><a href="/categories/">文章分类</a><a href="/tags/">文章标签</a></li><li><a href="/site/time/">建设进程</a><a href="/personal/about/">关于作者</a></li></ul></div></div></div><div class="ft-item-2"><p class="ft-t">推荐成员</p><div class="ft-img-group"><div class="img-group-item"><a target="_blank" rel="noopener" href="https://nmixx.fandom.com/wiki/Lily" title="Lily"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://lv2-cdn.azureedge.net/nmixx/094eef7bdf5c4821b96f0164a14e6626-%E1%84%85%E1%85%B5%E1%86%AF%E1%84%85%E1%85%B5_NMIXX%E1%84%80%E1%85%A9%E1%86%BC%E1%84%92%E1%85%A9%E1%86%B7.jpg" alt=""/></a></div><div class="img-group-item"><a target="_blank" rel="noopener" href="https://nmixx.fandom.com/wiki/Haewon" title="Haewon"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://lv2-cdn.azureedge.net/nmixx/cf08bbb262984b43902a2effceeca3bd-%E1%84%92%E1%85%A2%E1%84%8B%E1%85%AF%E1%86%AB_NMIXX%E1%84%80%E1%85%A9%E1%86%BC%E1%84%92%E1%85%A9%E1%86%B7.jpg" alt=""/></a></div><div class="img-group-item"><a target="_blank" rel="noopener" href="https://nmixx.fandom.com/wiki/Sullyoon" title="Sullyoon"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://lv2-cdn.azureedge.net/nmixx/1bdb353999a944e586bd941233ba66e6-%E1%84%89%E1%85%A5%E1%86%AF%E1%84%8B%E1%85%B2%E1%86%AB_NMIXX%E1%84%80%E1%85%A9%E1%86%BC%E1%84%92%E1%85%A9%E1%86%B7.jpg" alt=""/></a></div><div class="img-group-item"><a target="_blank" rel="noopener" href="https://nmixx.fandom.com/wiki/Bae" title="Bae"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://lv2-cdn.azureedge.net/nmixx/537217def06e4ad3ad7fa67dc8036e93-%E1%84%87%E1%85%A2%E1%84%8B%E1%85%B5_NMIXX%E1%84%80%E1%85%A9%E1%86%BC%E1%84%92%E1%85%A9%E1%86%B7.jpg" alt=""/></a></div><div class="img-group-item"><a target="_blank" rel="noopener" href="https://nmixx.fandom.com/wiki/Jiwoo" title="Jiwoo"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://lv2-cdn.azureedge.net/nmixx/330c652c4f404cb492fe95513c315ec0-%E1%84%8C%E1%85%B5%E1%84%8B%E1%85%AE_NMIXX%E1%84%80%E1%85%A9%E1%86%BC%E1%84%92%E1%85%A9%E1%86%B7.jpg" alt=""/></a></div><div class="img-group-item"><a target="_blank" rel="noopener" href="https://nmixx.fandom.com/wiki/Kyujin" title="Kyujin"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://lv2-cdn.azureedge.net/nmixx/4759b65e93414185b70eed6a84bcc60c-%E1%84%80%E1%85%B2%E1%84%8C%E1%85%B5%E1%86%AB_NMIXX%E1%84%80%E1%85%A9%E1%86%BC%E1%84%92%E1%85%A9%E1%86%B7.jpg" alt=""/></a></div><div class="img-group-item"><a target="_blank" rel="noopener" href="https://nmixx.fandom.com/wiki/NMIXX" title="NMIXX"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://lv2-cdn.azureedge.net/nmixx/4b56a70735464a2591e6efabdd8a1502-unit_03.jpg" alt=""/></a></div></div></div></div><div class="copyright"><span><b>&copy;2024-2025</b></span><span><b>&nbsp;&nbsp;By 小黄鸭的窝窝✨</b></span></div><div id="workboard"></div><p id="ghbdages"><a class="github-badge" target="_blank" href="https://hexo.io/" style="margin-inline:5px" title="博客框架为Hexo_v6.3.0"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://sourcebucket.s3.ladydaily.com/badge/Frame-Hexo-blue.svg" alt=""/></a><a class="github-badge" target="_blank" href="https://butterfly.js.org/" style="margin-inline:5px" title="主题版本Butterfly_v4.3.1"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://sourcebucket.s3.ladydaily.com/badge/Theme-Butterfly-6513df.svg" alt=""/></a><a class="github-badge" target="_blank" href="https://vercel.com/" style="margin-inline:5px" title="本站采用多线部署，主线路托管于Vercel"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://sourcebucket.s3.ladydaily.com/badge/Hosted-Vercel-brightgreen.svg" alt=""/></a><a class="github-badge" target="_blank" href="https://user.51.la/" style="margin-inline:5px" title="本站数据分析得益于51la技术支持"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://sourcebucket.s3.ladydaily.com/badge/Analytics-51la-3db1eb.svg" alt=""/></a><a class="github-badge" target="_blank" href="https://icp.gov.moe/?keyword=20226665" style="margin-inline:5px" title="本站已加入萌ICP豪华套餐，萌ICP备20226665号"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://sourcebucket.s3.ladydaily.com/badge/萌ICP备-20226665-fe1384.svg" alt=""/></a><a class="github-badge" target="_blank" href="https://bitiful.dogecast.com/buckets" style="margin-inline:5px" title="本网站经Service Worker分流至缤纷云对象存储"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src=" https://sourcebucket.s3.ladydaily.com/badge/Bucket-缤纷云-9c62da.svg" alt=""/></a><a class="github-badge" target="_blank" href="https://www.netdun.net/" style="margin-inline:5px" title="本站使用网盾星球提供CDN加速与防护"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://sourcebucket.s3.ladydaily.com/badge/CDN-网盾星球-fff2cc.svg" alt=""/></a><a class="github-badge" target="_blank" href="https://github.com/" style="margin-inline:5px" title="本网站源码由Github提供存储仓库"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src=" https://sourcebucket.s3.ladydaily.com/badge/Source-Github-d021d6.svg" alt=""/></a></p></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><a class="icon-V hidden" onclick="switchNightMode()" title="浅色和深色模式转换"><svg width="25" height="25" viewBox="0 0 1024 1024"><use id="modeicon" xlink:href="#icon-moon"></use></svg></a><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button><button class="share" type="button" title="右键模式" onclick="changeMouseMode()"><i class="fas fa-mouse"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog right_side"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button class="share" type="button" title="分享链接" onclick="share()"><i class="fas fa-share-nodes"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i><span id="percent">0<span>%</span></span></button><button id="go-down" type="button" title="直达底部" onclick="btf.scrollToDest(document.body.scrollHeight, 500)"><i class="fas fa-arrow-down"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div class="js-pjax" id="rightMenu"><div class="rightMenu-group rightMenu-small"><a class="rightMenu-item" href="javascript:window.history.back();"><i class="fa fa-arrow-left"></i></a><a class="rightMenu-item" href="javascript:window.history.forward();"><i class="fa fa-arrow-right"></i></a><a class="rightMenu-item" href="javascript:window.location.reload();"><i class="fa fa-refresh"></i></a><a class="rightMenu-item" href="javascript:rmf.scrollToTop();"><i class="fa fa-arrow-up"></i></a></div><div class="rightMenu-group rightMenu-line hide" id="menu-text"><a class="rightMenu-item" href="javascript:rmf.copySelect();"><i class="fa fa-copy"></i><span>复制</span></a><a class="rightMenu-item" href="javascript:window.open(&quot;https://cn.bing.com/search?q=&quot;+window.getSelection().toString());window.location.reload();"><i class="fa fa-search"></i><span>必应搜索</span></a></div><div class="rightMenu-group rightMenu-line hide" id="menu-too"><a class="rightMenu-item" href="javascript:window.open(window.getSelection().toString());window.location.reload();"><i class="fa fa-link"></i><span>转到链接</span></a></div><div class="rightMenu-group rightMenu-line hide" id="menu-paste"><a class="rightMenu-item" href="javascript:rmf.paste()"><i class="fa fa-copy"></i><span>粘贴</span></a></div><div class="rightMenu-group rightMenu-line hide" id="menu-post"><a class="rightMenu-item" href="javascript:rmf.copyWordsLink()"><i class="fa fa-link"></i><span>复制本文地址</span></a></div><div class="rightMenu-group rightMenu-line hide" id="menu-to"><a class="rightMenu-item" href="javascript:rmf.openWithNewTab()"><i class="fa fa-window-restore"></i><span>新窗口打开</span></a><a class="rightMenu-item" id="menu-too" href="javascript:rmf.open()"><i class="fa fa-link"></i><span>转到链接</span></a><a class="rightMenu-item" href="javascript:rmf.copyLink()"><i class="fa fa-copy"></i><span>复制链接</span></a></div><div class="rightMenu-group rightMenu-line hide" id="menu-img"><a class="rightMenu-item" href="javascript:rmf.saveAs()"><i class="fa fa-download"></i><span>保存图片</span></a><a class="rightMenu-item" href="javascript:rmf.openWithNewTab()"><i class="fa fa-window-restore"></i><span>在新窗口打开</span></a><a class="rightMenu-item" href="javascript:rmf.copyLink()"><i class="fa fa-copy"></i><span>复制图片链接</span></a></div><div class="rightMenu-group rightMenu-line"><a class="rightMenu-item" href="javascript:randomPost()"><i class="fa fa-paper-plane"></i><span>随便逛逛</span></a><a class="rightMenu-item" href="javascript:switchNightMode();"><i class="fa fa-moon"></i><span>昼夜切换</span></a><a class="rightMenu-item" href="javascript:rmf.switchReadMode();"><i class="fa fa-book"></i><span>阅读模式</span></a><a class="rightMenu-item" href="/personal/about/"><i class="fa fa-info-circle"></i><span>关于博客</span></a><a class="rightMenu-item" href="javascript:toggleWinbox();"><i class="fas fa-cog"></i><span>美化设置</span></a><a class="rightMenu-item" href="javascript:rmf.fullScreen();"><i class="fas fa-expand"></i><span>切换全屏</span></a><a class="rightMenu-item" href="javascript:window.print();"><i class="fa-solid fa-print"></i><span>打印页面</span></a></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.staticfile.org/fancyapps-ui/4.0.31/fancybox.umd.min.js"></script><script src="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/instant.page/5.1.0/instantpage.min.js" type="module"></script><script src="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/vanilla-lazyload/17.3.1/lazyload.iife.min.js"></script><script src="/js/search/local-search.js"></script><script async="async">var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())
+setTimeout(function(){preloader.endLoading();}, 5000);
+document.getElementById('loading-box').addEventListener('click',()=> {preloader.endLoading()})</script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"]],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.2
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, ''],
+        insertScript: [200, () => {
+          document.querySelectorAll('mjx-container:not\([display]\)').forEach(node => {
+            const target = node.parentNode
+            if (target.nodeName.toLowerCase() === 'li') {
+              target.parentNode.classList.add('has-jax')
+            } else {
+              target.classList.add('has-jax')
+            }
+          });
+        }, '', false]
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typeset()
+}</script></div><script src="https://cdn.staticfile.org/jquery/3.6.3/jquery.min.js"></script><script async src="https://cdn1.tianli0.top/npm/vue@2.6.14/dist/vue.min.js"></script><script async src="https://cdn1.tianli0.top/npm/element-ui@2.15.6/lib/index.js"></script><script async src="https://cdn.bootcdn.net/ajax/libs/clipboard.js/2.0.11/clipboard.min.js"></script><script defer type="text/javascript" src="https://cdn1.tianli0.top/npm/sweetalert2@11.15.10/dist/sweetalert2.all.js"></script><script async src="//npm.elemecdn.com/pace-js@1.2.4/pace.min.js"></script><script defer src="https://cdn1.tianli0.top/gh/nextapps-de/winbox/dist/winbox.bundle.min.js"></script><script async src="//at.alicdn.com/t/c/font_3586335_hsivh70x0fm.js"></script><script async src="//at.alicdn.com/t/c/font_3636804_gr02jmjr3y9.js"></script><script async src="//at.alicdn.com/t/c/font_3612150_kfv55xn3u2g.js"></script><script async src="//at.alicdn.com/t/c/font_4563749_sa07dotgi2.js"></script><script async src="https://cdn.wpon.cn/2022-sucai/Gold-ingot.js"></script><canvas id="universe"></canvas><canvas id="snow"></canvas><script defer src="/js/fomal.js"></script><script src="https://npm.elemecdn.com/echarts@4.9.0/dist/echarts.min.js"></script><link rel="stylesheet" href="https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-M/aplayer/1.10.1/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-M/aplayer/1.10.1/APlayer.min.js"></script><script src="https://cdn1.tianli0.top/npm/js-heo@1.0.12/metingjs/Meting.min.js"></script><script src="https://lib.baomitu.com/pjax/0.2.8/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show","#web_bg",".js-pjax","#bibi","body > title","#app","#tag-echarts","#posts-echart","#categories-echarts"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.tocScrollFn && window.removeEventListener('scroll', window.tocScrollFn)
+  window.scrollCollect && window.removeEventListener('scroll', scrollCollect)
+
+  typeof preloader === 'object' && preloader.initLoading()
+  document.getElementById('rightside').style.cssText = "opacity: ''; transform: ''"
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+  typeof disqusjs === 'object' && disqusjs.destroy()
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><!-- hexo injector body_end start --><script data-pjax>
+  function butterfly_swiper_injector_config(){
+    var parent_div_git = document.getElementById('recent-posts');
+    var item_html = '<div class="recent-post-item" style="height: auto;width: 100%"><div class="blog-slider swiper-container-fade swiper-container-horizontal" id="swiper_container"><div class="blog-slider__wrp swiper-wrapper" style="transition-duration: 0ms;"><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;posts/1000200.html&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://i0.hippopx.com/photos/683/318/324/wolf-wolves-snow-wolf-landscape-thumb.jpg" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2024-06-07</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;posts/1000200.html&quot;);" href="javascript:void(0);" alt="">算法图解</a><div class="blog-slider__text">入门的第一本算法书</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;posts/1000200.html&quot;);" href="javascript:void(0);" alt="">详情       </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;posts/520666.html&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://source.fomal.cc/img/default_cover_14.webp" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2022-08-09</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;posts/520666.html&quot;);" href="javascript:void(0);" alt="">Markdown语法与外挂标签写法汇总</a><div class="blog-slider__text">作者留下的宝藏</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;posts/520666.html&quot;);" href="javascript:void(0);" alt="">详情       </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;posts/1000000.html&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://pic.imgdb.cn/item/665d87635e6d1bfa05ec79ab.jpg" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2024-05-28</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;posts/1000000.html&quot;);" href="javascript:void(0);" alt="">龙族</a><div class="blog-slider__text">每个人心里，都有一个衰小孩</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;posts/1000000.html&quot;);" href="javascript:void(0);" alt="">详情       </a></div></div></div><div class="blog-slider__pagination swiper-pagination-clickable swiper-pagination-bullets"></div></div></div>';
+    console.log('已挂载butterfly_swiper')
+    parent_div_git.insertAdjacentHTML("afterbegin",item_html)
+    }
+  var elist = 'undefined'.split(',');
+  var cpage = location.pathname;
+  var epage = '/';
+  var flag = 0;
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_swiper_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_swiper_injector_config();
+  }
+  </script><script defer src="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper.min.js"></script><script defer data-pjax src="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper_init.js"></script><script data-pjax>
+  function butterfly_footer_beautify_injector_config(){
+    var parent_div_git = document.getElementById('footer-wrap');
+    var item_html = '<p id="ghbdages"><a class="github-badge" target="_blank" href="https://hexo.io/" style="margin-inline:5px" data-title="博客框架为Hexo_v6.2.0" title=""><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img.shields.io/badge/Frame-Hexo-blue?style=flat&amp;logo=hexo" alt=""/></a><a class="github-badge" target="_blank" href="https://butterfly.js.org/" style="margin-inline:5px" data-title="主题版本Butterfly_v4.3.1" title=""><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img.shields.io/badge/Theme-Butterfly-6513df?style=flat&amp;logo=bitdefender" alt=""/></a><a class="github-badge" target="_blank" href="https://www.douyin.com/" style="margin-inline:5px" data-title="抖音关注" title=""><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img.shields.io/badge/关注-抖音-orange?style=flat&amp;logo=tiktok&amp;logoColor=orange" alt=""/></a><a class="github-badge" target="_blank" href="https://www.bilibili.com/" style="margin-inline:5px" data-title="B站关注" title=""><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img.shields.io/badge/关注-B站-pink?style=flat&amp;logo=bilibili&amp;logoColor=pink" alt=""/></a><a class="github-badge" target="_blank" href="https://developer.mozilla.org/zh-CN/docs/Learn" style="margin-inline:5px" data-title="本站在练习使用HTML" title=""><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img.shields.io/badge/LAN-HTML-green?style=flat&amp;logo=markdown" alt=""/></a><a class="github-badge" target="_blank" href="https://github.com/" style="margin-inline:5px" data-title="本站项目由Github托管" title=""><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img.shields.io/badge/Source-Github-d021d6?style=flat&amp;logo=GitHub&amp;logoColor=d021d6" alt=""/></a><a class="github-badge" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" style="margin-inline:5px" data-title="本站采用知识共享署名-非商业性使用-相同方式共享4.0国际许可协议进行许可" title=""><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img.shields.io/badge/Copyright-BY--NC--SA%204.0-d42328?style=flat&amp;logo=Claris" alt=""/></a></p>';
+    console.log('已挂载butterfly_footer_beautify')
+    parent_div_git.insertAdjacentHTML("beforeend",item_html)
+    }
+  var elist = 'null'.split(',');
+  var cpage = location.pathname;
+  var epage = 'all';
+  var flag = 0;
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_footer_beautify_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_footer_beautify_injector_config();
+  }
+  </script><div class="js-pjax"><script async="async">var arr = document.getElementsByClassName('recent-post-item');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__zoomIn');
+    arr[i].setAttribute('data-wow-duration', '2s');
+    arr[i].setAttribute('data-wow-delay', '200ms');
+    arr[i].setAttribute('data-wow-offset', '30');
+    arr[i].setAttribute('data-wow-iteration', '1');
+  }</script><script async="async">var arr = document.getElementsByClassName('card-widget');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__zoomIn');
+    arr[i].setAttribute('data-wow-duration', '2s');
+    arr[i].setAttribute('data-wow-delay', '200ms');
+    arr[i].setAttribute('data-wow-offset', '30');
+    arr[i].setAttribute('data-wow-iteration', '1');
+  }</script></div><script defer src="https://npm.elemecdn.com/hexo-butterfly-wowjs/lib/wow.min.js"></script><script defer src="https://npm.elemecdn.com/hexo-butterfly-wowjs/lib/wow_init.js"></script><script data-pjax src="https://npm.elemecdn.com/hexo-filter-gitcalendar/lib/gitcalendar.js"></script><script data-pjax>
+  function gitcalendar_injector_config(){
+      var parent_div_git = document.getElementById('gitZone');
+      var item_html = '<div class="recent-post-item" id="gitcalendarBar" style="width:100%;height:auto;padding:10px;"><style>#git_container{min-height: 320px}@media screen and (max-width:650px) {#git_container{min-height: 0px}}</style><div id="git_loading" style="width:10%;height:100%;margin:0 auto;display: block;"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 50 50" style="enable-background:new 0 0 50 50" xml:space="preserve"><path fill="#d0d0d0" d="M25.251,6.461c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615V6.461z" transform="rotate(275.098 25 25)"><animatetransform attributeType="xml" attributeName="transform" type="rotate" from="0 25 25" to="360 25 25" dur="0.6s" repeatCount="indefinite"></animatetransform></path></svg><style>#git_container{display: none;}</style></div><div id="git_container"></div></div>';
+      parent_div_git.insertAdjacentHTML("afterbegin",item_html)
+      console.log('已挂载gitcalendar')
+      }
+
+    if( document.getElementById('gitZone') && (location.pathname ==='/site/census/'|| '/site/census/' ==='all')){
+        gitcalendar_injector_config()
+        GitCalendarInit("/api?null",['#d9e0df', '#c6e0dc', '#a8dcd4', '#9adcd2', '#89ded1', '#77e0d0', '#5fdecb', '#47dcc6', '#39dcc3', '#1fdabe', '#00dab9'],'null')
+    }
+  </script><!-- hexo injector body_end end --></body></html>
