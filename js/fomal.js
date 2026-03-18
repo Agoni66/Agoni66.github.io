@@ -3183,9 +3183,9 @@ if (localStorage.getItem("blogbg") != undefined) {
 } else {
   document.getElementById("defineBg").innerText = `:root{
     --default-bg: url(https://Agoni66.github.io/img/haewon_2.JPG);
-    --darkmode-bg:url(https://Agoni66.github.io/img/background_1.JPG);
-    --mobileday-bg: url(https://Agoni66.github.io/img/haewon_3.png);
-    --mobilenight-bg: url(https://Agoni66.github.io/img/haewon_4.jpg);
+    --darkmode-bg:url(https://Agoni66.github.io/img/bg3.jpg);
+    --mobileday-bg: url(https://Agoni66.github.io/img/haewon_8.jpg);
+    --mobilenight-bg: url(https://Agoni66.github.io/img/haewon_3.png);
   }`;
 // 默认背景
 // --default-bg: url(https://lskypro.acozycotage.net/Fomalhaut/img/dm14.webp);
