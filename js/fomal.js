@@ -3184,7 +3184,7 @@ if (localStorage.getItem("blogbg") != undefined) {
   document.getElementById("defineBg").innerText = `:root{
     --default-bg: url(https://Agoni66.github.io/img/haewon_2.JPG);
     --darkmode-bg:url(https://Agoni66.github.io/img/bg3.jpg);
-    --mobileday-bg: url(https://Agoni66.github.io/img/haewon_8.jpg);
+    --mobileday-bg: url(https://Agoni66.github.io/img/bg4.jpg);
     --mobilenight-bg: url(https://Agoni66.github.io/img/haewon_3.png);
   }`;
 // 默认背景
