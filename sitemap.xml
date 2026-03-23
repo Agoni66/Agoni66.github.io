@@ -578,6 +578,15 @@
   </url>
   
   <url>
+    <loc>https://agoni66.github.io/life/games/index.html</loc>
+    
+    <lastmod>2023-03-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://agoni66.github.io/personal/bb/index.html</loc>
     
     <lastmod>2023-03-22</lastmod>
@@ -588,15 +597,6 @@
   
   <url>
     <loc>https://agoni66.github.io/personal/love/index.html</loc>
-    
-    <lastmod>2023-03-22</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://agoni66.github.io/life/games/index.html</loc>
     
     <lastmod>2023-03-22</lastmod>
     
@@ -630,6 +630,13 @@
   </url>
   
   <url>
+    <loc>https://agoni66.github.io/tags/%E7%AE%97%E6%B3%95/</loc>
+    <lastmod>2026-03-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://agoni66.github.io/tags/%E5%B7%A5%E5%85%B7/</loc>
     <lastmod>2026-03-23</lastmod>
     <changefreq>weekly</changefreq>
@@ -644,7 +651,7 @@
   </url>
   
   <url>
-    <loc>https://agoni66.github.io/tags/%E7%AE%97%E6%B3%95/</loc>
+    <loc>https://agoni66.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/</loc>
     <lastmod>2026-03-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -652,13 +659,6 @@
   
   <url>
     <loc>https://agoni66.github.io/tags/%E5%9F%BA%E7%A1%80/</loc>
-    <lastmod>2026-03-23</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://agoni66.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/</loc>
     <lastmod>2026-03-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -673,27 +673,6 @@
   
   <url>
     <loc>https://agoni66.github.io/tags/%E5%A4%96%E6%8C%82%E6%A0%87%E7%AD%BE/</loc>
-    <lastmod>2026-03-23</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://agoni66.github.io/tags/%E6%AD%A3%E8%83%BD%E9%87%8F/</loc>
-    <lastmod>2026-03-23</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://agoni66.github.io/tags/%E6%96%87%E5%AD%A6/</loc>
-    <lastmod>2026-03-23</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://agoni66.github.io/tags/%E9%9A%8F%E8%AE%B0/</loc>
     <lastmod>2026-03-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -721,7 +700,21 @@
   </url>
   
   <url>
-    <loc>https://agoni66.github.io/tags/%E6%B4%BB%E7%9D%80/</loc>
+    <loc>https://agoni66.github.io/tags/%E6%AD%A3%E8%83%BD%E9%87%8F/</loc>
+    <lastmod>2026-03-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://agoni66.github.io/tags/%E6%96%87%E5%AD%A6/</loc>
+    <lastmod>2026-03-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://agoni66.github.io/tags/%E9%9A%8F%E8%AE%B0/</loc>
     <lastmod>2026-03-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -729,6 +722,13 @@
   
   <url>
     <loc>https://agoni66.github.io/tags/%E6%B2%BB%E6%84%88/</loc>
+    <lastmod>2026-03-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://agoni66.github.io/tags/%E6%BC%AB%E7%94%BB/</loc>
     <lastmod>2026-03-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -743,6 +743,13 @@
   
   <url>
     <loc>https://agoni66.github.io/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/</loc>
+    <lastmod>2026-03-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://agoni66.github.io/tags/%E6%B4%BB%E7%9D%80/</loc>
     <lastmod>2026-03-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -770,7 +777,7 @@
   </url>
   
   <url>
-    <loc>https://agoni66.github.io/tags/%E6%BC%AB%E7%94%BB/</loc>
+    <loc>https://agoni66.github.io/tags/python/</loc>
     <lastmod>2026-03-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -778,13 +785,6 @@
   
   <url>
     <loc>https://agoni66.github.io/tags/%E5%9B%9B%E5%A4%A7%E4%BB%B6/</loc>
-    <lastmod>2026-03-23</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://agoni66.github.io/tags/python/</loc>
     <lastmod>2026-03-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -856,14 +856,14 @@
   </url>
   
   <url>
-    <loc>https://agoni66.github.io/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/</loc>
+    <loc>https://agoni66.github.io/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/</loc>
     <lastmod>2026-03-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://agoni66.github.io/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/</loc>
+    <loc>https://agoni66.github.io/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/</loc>
     <lastmod>2026-03-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
